@@ -1,0 +1,642 @@
+#Body {
+    overflow-x: hidden;
+}
+
+.autocomplete-suggestions {
+    display: block;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    color: #0C0C0C;
+    font-family: Roboto;
+    font-size: 13px;
+    overflow-y: scroll;
+    max-height: 300px !important;
+}
+
+.port_query {
+    text-transform: uppercase;
+}
+
+.flight_num_input {
+    text-transform: uppercase;
+}
+
+.lb_chk_to {
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png) left bottom no-repeat !important;
+    margin-bottom: -3px;
+}
+ 
+.booking_lb .lightbox_ctr {
+    margin: auto;
+    background: rgba(255,255,255,1);
+    position: relative;
+    border: 1px solid #00AEEB;
+    padding: 10px;
+    text-align: center;
+}
+
+.booking_lb .blk_filter {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.booking_lb h3 {
+    text-align: left;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400 !important;
+    color: #0C0C1E;
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+.booking_lb .blk_filter .code_02_ctr .btn_search {
+    right: -37px;
+}
+
+.booking_lb .blk_filter .code_02_ctr .btn_search {
+    position: absolute;
+    bottom: 0;
+    right: -46px;
+    width: 36px;
+    height: 36px;
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_wt_search.png) center center no-repeat #FF5E2A;
+    cursor: pointer;
+    cursor: hand;
+    border-radius: 3px;
+}
+
+.datepicker, ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.lity-hidden {
+    z-index: 11510 !important;
+}
+
+.select_flight_flt_mod_date {
+    width: 142px !important;
+}
+
+.update_indicator {
+    color: orange !important;
+}
+
+.error_indicator {
+    color: #FF8715 !important;
+}
+
+.bd_flight_del_txt {
+    text-decoration: line-through;
+}
+
+#cargoInfo_awb_result_wrapper .stock_lookup_list {
+    margin: 0 -2px 0 -1px;
+    padding: 0;
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#cargoInfo_awb_result_wrapper .stock_lookup_list li {
+    display: block;
+    margin: 0;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.contact_addrbook_item {
+    color: #0D0D1E;
+    font-size: 13px;
+    margin-right: 10px;
+    min-width: 60px;
+    display: inline-block;
+}
+
+.inline_loading_panel {
+    background: url(/Portals/_default/Skins/EzyCargo/img/loading_general.gif) no-repeat;
+    padding-left: 100px;
+    min-height: 20px;
+    background-size: 15px 15px;
+}
+
+.consign_info .chk_location input {
+    width: 120px !important;
+}
+
+input[id^="flight_flt_allt_"] {
+    width: 100px !important; 
+}
+
+input[id^="cx_flight_flt_allt_"] {
+    width: 115px !important;
+}
+
+.bkd_num_input {
+    width: 120px !important;
+}
+
+.cargo_temp_input_field {
+    width: 80px;
+}
+
+.bkd_block_show {
+    display: inline-block !important;
+}
+
+.bkd_block_hide {
+    display: none !important;
+}
+.select_bu_sq_uld, .select_bu_jl_uld {
+    width: 80px!important;
+}
+
+.uld_total_volume_row {
+    margin-top: 15px;
+    width: 310px;
+}
+
+.uld_total_volume_txt {
+    color: #000000 !important;
+    font-weight: 100 !important;
+    font-size: 13px !important;
+    text-align: center;
+    display: inline-block;
+}
+
+.uld_total_volume_title {
+    width: 190px;
+}
+
+.uld_total_volume_val {
+     width: 95px;
+    border-top: 2px solid #a3a3a3;
+}
+
+.add-photo-btn{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    text-align:center;
+    background-color:#83b81a;
+    color:#fff;display:block;
+    width:197px;
+    height:31px;
+    font-size:18px;
+    line-height:30px;
+    float:left;
+}
+
+.filter_arrow_close {
+	display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_bu_arrow_r.png) center center no-repeat #FFFFFF;
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+
+.filter_arrow_open {
+	display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_bu_arrow_dn2.png) center center no-repeat #FFFFFF;
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+
+.filterPanelBtn {
+    cursor: pointer;
+    border: none;
+    color: #136ABF;
+    font-size: 15px;
+    font-family: Roboto,'Microsoft JhengHei',sans-serif!important;
+}
+
+.cargoInfo_gen_awb_input_row {
+    vertical-align: top;
+}
+
+.select_bu_lh_uld {
+    width: 80px !important;
+}
+
+.cnt_inline.w48 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	vertical-align: -13.5px !important;
+}
+
+.blk_contour a.bu_plus_link {
+    display: inline-block !important;
+    margin: 10px 0 0 0px !important;
+}
+
+.btn_addr_add {
+    display: inline-block !important;
+    margin: 15px 0 !important;
+}
+
+input[type=button].btn_search {
+    vertical-align: bottom !important;
+}
+
+input[type=button].btn_or_go {
+    vertical-align: bottom !important;
+}
+
+#collapseAddressBook_shipper .cnt_inline {
+    height: auto;
+}
+
+#collapseAddressBook_consignee .cnt_inline {
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.inline_block{
+    display: inline-block;
+}
+
+.text_align_left {
+    text-align: left !important;
+}
+
+.route_input_row {
+    text-align: left !important;
+    height: auto !important;
+}
+
+.bottom-panel {
+    padding: 10px !important;
+}
+
+.act_bu.act_search_flight {
+    margin-top: 5px !important;
+    margin-left: 15px !important;
+}
+
+.act_bu.act_add_flights {
+    margin-left: 0px !important;
+    display: inline-block;
+}
+
+#booking_detail_records_table .link_bu_r {
+    line-height: 38px;
+}
+
+#booking_detail_records_table .flight_location {
+    width: 100%;
+    text-align: left;
+}
+
+#bkd_def_flight .act_add_flights {
+    padding-left: 20px;
+}
+
+.date_refresh{
+    padding-right: 25px !important;
+}
+
+.flight_segment_input_row {
+    margin-right: 0px !important;
+}
+
+.top{
+    vertical-align: top !important;
+}
+
+.bottom {
+    vertical-align: bottom !important;
+}
+
+.flight_od_icon2 {
+    padding: 26px 18px 0 5px !important;
+}
+
+@media screen and (max-width: 878px){
+    .flight_flt_allt_top {
+        vertical-align: top;
+    }
+
+    .flight_od_icon2 {
+        padding-top: 50px !important;
+    }
+}
+
+.header_inline_right {
+    padding-top: 10px;
+    line-height: 39px;
+    text-align: right;
+}
+
+.header_inline_left {
+    padding-top: 10px;
+    line-height: 50px;
+}
+
+.short_line_height {
+    line-height: 34px;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+.blk_gy_line.blkl {
+    margin: 0px 0px 15px 0px !important;
+    width: 100%;
+}
+
+.blk_sty01 {
+    margin-top: 0px !important;
+}
+
+.blk_sty02 {
+    margin-top: 0px !important;
+}
+
+#route_table{
+    margin-bottom: 0px;
+}
+
+#fld_flight_table {
+    margin: 0px;
+}
+
+.cd-tabs-content ol.routing_flights li{
+    height: auto !important;
+}
+
+#fld_flight_table li .colb {
+    height: auto;
+}
+
+.lightbox_ctr .lightbox_blk {
+    padding: 0px;
+}
+.lightbox_ctr .lightbox_blk .blk_filter {
+    padding: 0px;
+}
+
+#booking_log_title {
+    float: none;
+    margin-bottom: 10px;
+}
+
+.head_hr{
+    margin-bottom: 20px;
+}
+
+#bkd_def_flight .act_search_flight {
+    padding: 3px 23px !important;
+    margin-top: 16px !important;
+}
+
+.switch-toggle label{
+    text-align: center !important;
+}
+
+#booking_reserve_space {
+    min-width: 500px;
+}
+
+.btn_img_print {
+    /*display: none !important;*/
+}
+
+#bkdTWWhsCode {
+    width: 400px;
+}
+
+#uld_contour_table li {
+    padding-left: 15px;
+}
+
+.no_side_padding {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.w84 input{
+    width: 84px;
+}
+
+.logged h3 {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.gbg a.btn_gy_edit {
+    margin: 20px 20px 0 !important;
+}
+
+.field_hint {
+    padding: 5px 0px;
+    color: black;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.flight_detail_temp {
+    white-space: nowrap;
+}
+
+#Form {
+    overflow-x: hidden;
+}
+
+.rubbish_bin {
+    cursor: pointer;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../../../Portals/_default/Skins/EzyCargo/img/icon_bu_delete.png) no-repeat;
+}
+
+#delete_all_btn {
+    padding-left: 23px;
+    padding-top: 2;
+    margin-left: 12px;
+    width: auto;
+    font-size: 13px;
+    color: grey;
+}
+
+.consign_info .uld_contour_input_wrapper li .cnt_inline label {
+    display: none;
+}
+
+.consign_info .uld_contour_input_wrapper li:first-child .cnt_inline label {
+    display: block;
+}
+
+.reminder {
+    font-style: italic;
+    color: grey;
+}
+
+.flight_od {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.flight_od_icon {
+    padding: 48px 18px 0 5px !important;
+}
+
+.no_margin {
+    margin: 0px !important;
+}
+
+.cnt_inline.b878 select.select_bu {
+    margin-bottom: 0px !important;
+}
+
+#bkd_def_flight .flight_segment_input_row .gr_remarks {
+    height: auto;
+}
+
+.flight_status span {
+    padding: 10px 0px;
+}
+
+.four_units{
+    width: 150px;
+}
+
+.four_units label {
+   padding: 5px 10px !important;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#total_in_selected_unit_wrapper {
+    white-space: nowrap;
+}
+
+.dimension_total #total_in_selected_unit {
+    display: initial;
+}
+
+.dimension_total #selected_unit {
+    display: initial;
+}
+
+.cx_awb_validate_loading {
+    background: url(/Portals/_default/Skins/EzyCargo/img/loading_general.gif) no-repeat;
+    height: 24px;
+    width: 27px;
+    background-size: 80%;
+    vertical-align: middle;
+}
+
+.cx_awb_validate_valid {
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_gn_tick.png) no-repeat;
+    height: 18px;
+    width: 27px;
+    background-size: 77%;
+    vertical-align: middle;
+}
+
+.cx_awb_validate_invalid {
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_rd_cross.png) no-repeat;
+    height: 19px;
+    width: 26px;
+    background-size: 68%;
+    vertical-align: middle;
+}
+
+.cx_awb_china_shipment_warning {
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_gn_tick.png) no-repeat;
+    height: 18px;
+    width: 27px;
+    background-size: 77%;
+    vertical-align: middle;
+}
+
+.cx_awb_china_shipment_warning + .awb_loading_msg {
+    color: #0066AB;
+}
+
+.awb_loading_msg {
+    display: contents;
+    color: red;
+    font-weight: initial;
+}
+
+.invalid_input_field {
+    background-color: #ffffcc !important;
+}
+
+.multi_airline_auto_allotment {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.flight_status.saved {
+    background: url(/Portals/_default/Skins/EzyCargo/img/icon_saved.png) center left no-repeat;
+}
+
+.common_btn {
+    background: #FE5D2C;
+    padding: 7px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white !important;
+    font-weight: 400;
+}
+
+.expandable_title {
+    cursor: pointer;
+}
+
+.collapse_wrapper {
+    width: 100%;
+}
+
+.collapse_icon {
+    float: right;
+    padding-top: 23px;
+}
+
+.collapse_icon i {
+    height: auto;
+    width: auto;
+    color: gray;
+    cursor: pointer;
+}
+
+#cargoInfo_deal_code {
+    text-transform: uppercase;
+}
+
+.route_input_wrapper {
+    display: inline-block;
+}
+
+.no_border {
+    border: none !important;
+}
+
+#flt_order_list.cx .chk_location input {
+    width: 90px !important;
+}
+
+#flight_edit.cx #flight_flt_from,
+#flight_edit.cx #flight_flt_to {
+    width: 90px !important;
+}
+
+.decimal_list li {
+    list-style: decimal;
+}
+
+@media screen and (max-width: 935px) {
+    .consign_info .uld_contour_input_wrapper li .cnt_inline label {
+        display: block;
+    }
+}

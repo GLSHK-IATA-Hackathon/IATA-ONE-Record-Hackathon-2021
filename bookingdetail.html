@@ -2098,6 +2098,10 @@ $(function() {
 		$("#bu_str_e").text("20.0");
 		$("#bd_remark_ssi").html("TEMPERATURE -2C10C  ");
 		$("#bd_remark_ssi2").html("STORAGE 10C20CCTC 789332 TEMPERATURE -2C10C   STORAGE 10C20CCTC 789332 TEMP");
+		$("#routing_origin").text("HKG");
+		$("#routing_dest").text("AMS/CX");
+		$("#flight_detail_temp_origin").text("HKG");
+		$("#flight_detail_temp_dest").text("AMS");
 		// $("#").text("");
 		// $("#").val("");
 		//end
@@ -3210,7 +3214,7 @@ $(function() {
     
 
     <div class="cnt_inline chk_to bd_route_tp"></div>
-    <div class="cnt_inline bu_txt mr5 bd_route_tp"><div class="lbl_value">TPE/CX</div></div>
+    <div class="cnt_inline bu_txt mr5 bd_route_tp"><div id="routing_dest" class="lbl_value">AMS/CX</div></div>
 </div>
 
     <div class="booking_lb lity-hide" id="routing_edit" style="width: 100%; min-width: 900px; max-width: 900px;">
@@ -3805,7 +3809,7 @@ $(function() {
 	
 	<ol id="fld_flight_table" class="routing_flights">
 	<li data-rowid="0">
-		<div class="cola" style="width: 110px;"><span class="flight_detail_temp">HKG</span><div class="cnt_inline chk_to"></div><span class="flight_detail_temp">TPE</span></div>
+		<div class="cola" style="width: 110px;"><span id="flight_detail_temp_origin" class="flight_detail_temp">HKG</span><div class="cnt_inline chk_to"></div><span id="flight_detail_temp_dest" class="flight_detail_temp">AMS</span></div>
 		<div class="cola" style="width: 70px;"><span class="flight_detail_temp flight_num_display">CX271</span></div>
 		<div class="blklc w991"></div>
 		<div class="colb" style="width: 130px;"><label data-i18n="flight.Departure">Departure</label><span class="flight_detail_temp">24 Sep</span></div>
