@@ -416,9 +416,9 @@ function osm_addNGTTDeviceSensorReadingOnMap(objMap, objNGTTDeviceSensorReading,
 					intLatLngIndex++
 					
 				}
-
+				
 				if (latLng.length > 0) {
-					//console.log("latLng", latLng);
+					// console.log("latLng", latLng);
 					// if(i == 0 && !blnAddDeviceSensorReadingMarkers){
 					// 	var drawMapPromise = new Promise((resolve, reject) => {
 					// 		drawMapAnimation(latLng, objMap);

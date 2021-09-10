@@ -618,9 +618,7 @@ function initialize_shipment_status() {
 function initialize_device_sensor_reading() {
 	
 	var objLastAvailableSensorReading
-	
 	if (objNGTTDeviceSensorReading.devices != null && objNGTTDeviceSensorReading.devices.length > 0 && objNGTTDeviceSensorReading.devices[0].reading.length > 0) {
-		
 		//Added at 20210210 - START
 		$("#TNT_Result-Content").html($("#TNT_Result-Content").html().replace(new RegExp("{{LocalizedString-Temperature}}", 'g'), (objNGTTDeviceSensorReading.inCooltainer ? LocalizedStrings['Product'][strCurrentLanguage] : LocalizedStrings['Transportation'][strCurrentLanguage]) + LocalizedStrings['Temperature'][strCurrentLanguage]))
 		//Added at 20210210 - END
