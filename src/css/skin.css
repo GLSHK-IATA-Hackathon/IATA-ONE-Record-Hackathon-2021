@@ -1,0 +1,547 @@
+.disabled, .hide {
+	display: none !important;
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+	display: table-cell !important;
+}
+
+a.btn_or_search,
+.theader  a,
+.theader  a:visited {
+	color: #ffffff;
+}
+
+.error_input {
+    border: 1px solid #ff0000;
+}
+
+#error_message {
+	padding-top: 12px;
+}
+
+.wbg {
+	min-height: 400px;
+}
+
+.cola {
+	padding: 18px;
+	display: table-cell;
+	text-align: center;
+	color: #0D0D1E;
+    font-size: 18px;
+}
+
+.blk_sty01 .checkemanifestsummary {
+    float: left;
+    display: inline-block;
+    color: #FFF;
+    background: none;
+    width: auto;
+    height: auto;
+    position: static;
+    bottom: auto;
+    right: auto;
+    padding: 0 41px 0 0;
+}
+
+.checkemanifestsummary {
+    width: 420px;
+    height: 54px;
+    padding: 10px;
+    background: #0e76bd;
+    position: fixed;
+    bottom: 5%;
+    right: 0;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+.checkemanifestDetail {
+    width: 250px;
+    height: 54px;
+    padding: 10px;
+    bottom: 5%;
+    right: 0;
+    color: black;
+    font-size: 13px;
+    display: inline-block;
+	vertical-align: top;
+}
+
+.checkemanifestDetail label {
+	display: block;
+    padding: 0 0 5px;
+    color: #0C0C1E;
+    font-size: 13px;
+	font-weight: 700;
+}
+
+.checkemanifestInputDetail {
+    width: 520px;
+    height: 54px;
+    padding: 10px;
+    bottom: 5%;
+    right: 0;
+    color: black;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.formInputRowWrapper {
+	margin-bottom: 10px;
+}
+
+.fmDDLItem {
+	width: 200px;
+    height: 36px;
+    border: 1px solid #00AEEB;
+    padding: 0px 10px 0px 10px;
+    margin-top: 1px;
+    color: #333;
+    font-size: 13px;
+	
+	background-image: linear-gradient(45deg,transparent 50%,#00AEEB 50%),linear-gradient(135deg,#00AEEB 50%,transparent 50%),linear-gradient(to right,transparent,transparent);
+    background-position: calc(90% - 4px) calc(1em + -1px),calc(90% - -1px) calc(1em + -1px),calc(100% - 2.5em) .5em;
+    background-size: 5px 5px,5px 5px,1px 1.5em;
+    background-repeat: no-repeat;
+	-webkit-appearance: none;
+}
+
+.fmInputDDLItem {
+	width: 200px;
+    height: 33px;
+    border: 1px solid #676E6E;
+    padding: 0px 10px 0px 10px;
+    margin-top: 1px;
+    color: #333;
+    font-size: 13px;
+	margin-left: 3px;
+	
+	background-image: linear-gradient(45deg,transparent 50%,#00AEEB 50%),linear-gradient(135deg,#00AEEB 50%,transparent 50%),linear-gradient(to right,transparent,transparent);
+    background-position: calc(90% - 4px) calc(1em + -1px),calc(90% - -1px) calc(1em + -1px),calc(100% - 2.5em) .5em;
+    background-size: 5px 5px,5px 5px,1px 1.5em;
+    background-repeat: no-repeat;
+	-webkit-appearance: none;
+}
+
+.fmBtnLink{
+    display: inline-block;
+    padding: 10px 15px 10px 10px;
+    margin: 0 10px 0 5px;
+    color: #FFF;
+    font-size: 13px;
+}
+
+a.btnWrapperBlue{
+    border-radius: 4px;
+	background: #00ADEB;
+	display: inline-block;
+    width: 125px;
+    height: 35px;
+    padding: 8px 15px;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+	margin: 0 5px 15px 5px;
+}
+
+a.btnWrapperGrey{
+    border-radius: 4px;
+	background: #e8e8e8;
+	display: inline-block;
+    width: 125px;
+    height: 35px;
+    padding: 8px 15px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+	margin: 0 5px;
+}
+
+.fmHeaderItemWrapper{
+	/*display: inline-block;*/
+	min-width: 150px;
+}
+
+.fmItemWrapper{
+	display: inline-block;
+	min-width: 150px;
+	vertical-align: middle;
+}
+
+.fmInputTextArea {
+
+    width: 300px;
+    height: 70px;
+    border: 1px solid #676E6E;
+    padding: 6px 6px;
+    margin-top: 1px;
+    margin-left: 3px;
+    color: #333;
+    font-size: 13px;
+
+}
+
+.fmButtonRow {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.btnSearcheManifestWrapper {
+	margin-top: 35px;
+	margin-left: 3px;
+}
+
+input[type="radio"]:checked+label.sort_02b{
+	text-decoration:none;
+	background:#FF8715;
+	width:auto;
+	height:25px;
+	padding:4px 10px;
+	display:inline-block;
+	color:#FFF;
+	font-size:13px;
+	border-radius:30px;
+	font-weight:400;
+	cursor:pointer;
+	cursor:hand
+}
+
+.collapse.in  {
+	display: table !important;
+}
+.collapse  {
+	display: none;
+}
+
+.work0 .slice-left, 
+.work0 .slice-right {
+	display: none;
+}
+
+.cbsa_ins_fd input, .cbsa_ins_fd select {
+    /*border: 1px solid #00AEEB;*/
+	border: 1px solid #676E6E;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    color: #555;
+    font-size: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cbsa_ins_fd input, .cbsa_ins_fd select {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-color: #FFF;
+    background-image: url(img/icon_bu_date.png);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    padding: 5px 16px 5px 8px;
+    width: 207px;
+}
+
+.txt_cbsa_flightdate {
+	width: 136px !important;
+}
+
+.txt_cbsa_flightFromTo {
+	width: 68px !important;
+}
+
+.statusBall_green {
+	background-image: url(img/mstat_C.gif);
+	width: 17px;
+	height: 17px;
+}
+
+.statusBall_red {
+	background-image: url(img/mstat_M.gif);
+	width: 17px;
+	height: 17px;
+}
+
+.statusBall_grey {
+	background-image: url(img/mstat_N.gif);
+	width: 17px;
+	height: 17px;
+}
+
+.statusBall_load {
+	background-image: url(img/mstat_S.gif);
+	width: 17px;
+	height: 17px;
+}
+
+.SrcSectiontitleWrapper {
+	margin-bottom: 40px;
+}
+
+.SrcSectiontitle {
+	color: #0067AB !important;
+}
+
+.fmOptionalFeild {
+	font-weight: 300;
+}
+
+.fmSaveStatusPending {
+	background-image: url(img/lock_n_floppy/save_pending.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmSaveStatusSave {
+	background-image: url(img/lock_n_floppy/save.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmSaveStatusRejected {
+	background-image: url(img/lock_n_floppy/save_rejected.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmLockStatusPending {
+	background-image: url(img/lock_n_floppy/lock_pending.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmLockStatus {
+	background-image: url(img/lock_n_floppy/lock.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmLockStatusRejected {
+	background-image: url(img/lock_n_floppy/lock_rejected.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmUnLockStatusPending {
+	background-image: url(img/lock_n_floppy/unlock_pending.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmUnLockStatus {
+	background-image: url(img/lock_n_floppy/unlock.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmUnLockStatusRejected {
+	background-image: url(img/lock_n_floppy/unlock_rejected.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.fmNewItemIcon{
+	background-image: url(img/lock_n_floppy/new.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.panelWrapper {
+	width: 529px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 0 0 0;
+    margin-right: 9px;
+}
+
+.fmItemWrapperExtend {
+	min-width: 280px;
+}
+
+.fmValidTxt {
+	font-size: 12px;
+}
+
+/* Side Banner */
+.open .saved_switch .arrow_dn_bu {
+	display: none;
+}
+
+.panel_saved  .arrow_dn_bu  {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.saved_outer.open .panel_saved {
+	max-height: 2400px !important;
+}
+
+/* Dashboard / TnT flight_num */
+.flight_num, .dashboard .flight_num {
+	min-width: 46px;
+}
+
+/* eManifest transaction history */
+.transHistURL {
+	background-image: url(img/trans_hist/ScheduleHistory.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+    background-repeat: no-repeat;
+}
+
+.transHistRawDataBtn {
+	background-image: url(img/trans_hist/FileLink.png);
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+footer .container .blklogo span > span {
+    vertical-align: 0px;
+}
+
+a.btn_confirm {
+    cursor: default;
+}
+
+.errorTableCell span.awb {
+    white-space: initial !important;
+}
+
+@media screen and (max-width:977px){
+.share_logged .general_nav .navbar-header{background:#3981c4;border-bottom:4px solid #00aeeb;position:fixed;top:0;left:0;width:320px;height:45px}
+.share_logged .general_nav .navbar-brand .head_logo{margin:6px 20px 4px;width:80px;height:30px;background:url(./img/logo_wt.png) no-repeat;background-size:67px 30px}
+.share_logged .general_nav .gnav-toggle,.logged .navbar-header label .fa.fa-bars.handle{background:url(./img/icon_mobile_menu_wt.png) center center no-repeat;background-size:50%}
+.share_logged .general_nav .fa.fa-bars.gnav-toggle{background:url(./img/btn_mobile_menu.png) center center no-repeat;background-size:50%}
+}
+
+/* DNN jquery-ui fix */
+.dnnFormPopup{
+	overflow: visible;
+}
+
+.dnnFormPopup> .ui-dialog-titlebar > .ui-dialog-titlebar-close {
+   top: -15px;
+   right: -15px;
+   z-index: 101;
+}
+
+a.btn_classic{display:block;background:#ff8715 url("../img/icon_wt_arrow_r.png") no-repeat scroll 12% center; width:150px;padding:2px 15px 3px 15px;margin-top:14px; font-size:13px;text-decoration:none;border-radius: 12px;box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.25);}
+@media (min-width:992px){
+.jumbotron {padding:0!important;margin-bottom:0!important;}
+.jumbotron .container.dashboard{width:100%!important}
+}
+@media (max-width: 991px) {
+	.blk_sty01 .checkbill label {
+		color: #000;
+	}
+}
+
+.blk_sty01 .checkbill.multi, .blk_sty02 .checkbill.multi {
+    width: 55%;
+}
+.chk_location input, .chk_location select {
+	width: 220px;
+}
+
+h1 {
+	font-weight: normal!important;
+}
+
+.tarea_01_ctr .btn_search {
+	top: 0px;
+}
+
+@media screen and (max-width: 767px) {
+	.open .checkbill.multi {
+		width: 100%;
+	}
+}
+
+body {
+	background-color: transparent !important; 
+}
+
+/* IE11 */
+#reserve_space {
+	display: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+*::-ms-backdrop, .input-group {
+	margin-bottom: -13px !important;
+}
+
+*::-ms-backdrop, #reserve_space {
+	width: 450px;
+	padding-bottom: 12px;
+}
+
+.autocomplete-suggestions {
+    min-width: 400 !important;
+    line-height: 28px;
+    font-size: 14px;
+    padding-left: 8px;
+}
+
+
+
+.blk_sty02 .blk_error .icon_success{display:inline-block;width:60px;height:60px;margin-right:15px;background:url(/img/icon_round_gr_tick.png) center center no-repeat;}
+ 
+ /* IE11 */
+@media all and (-ms-high-contrast:none)
+{
+	*::-ms-backdrop, .btn_or_go { display: block; float: right; }
+	*::-ms-backdrop, .btn_search { display: block; float: right; }
+}
+
+@media print {
+	.lightbox:target .lightbox_ctr, .lightbox_ctr {
+		width: auto;
+		height: auto;
+		overflow: visible;
+		border: none;
+	}
+	
+	.lity-container {
+		position: fixed !important;
+		top: 0px;
+		left: 0px;
+	}
+}
+
+
+.blk_error .blk_msg {
+	background: url(/img/icon_rd_error.png) left top no-repeat !important;
+}

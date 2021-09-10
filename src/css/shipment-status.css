@@ -1,0 +1,491 @@
+[v-cloak] {
+  display:none;
+}
+
+.shipment-status_normal-text {
+	font-family : Arial; 
+	font-size : 12px; 
+	color : #707070;
+}
+
+.shipment-status_title {
+	font-family : Arial;
+	font-size : 20px;
+	font-weight : bold;
+	color : #4C4C4C;
+	padding-top : 15px;
+	padding-bottom : 15px;
+}
+
+.shipment-status_subtitle {
+	font-family : Arial; 
+	font-size : 12px; 
+	font-weight : bold;
+	color : #0067AB;
+}
+
+
+.shipment-status_awb {
+	font-family : Arial; 
+	font-size : 15px; 
+	color : #4C4C4C;
+	padding-top : 15px;
+	padding-bottom : 15px;
+	
+}
+
+.shipment-status_tab {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+
+.shipment-status_tab button {
+	font-family : Arial;
+	font-weight : bold;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color: #EBEDEC;
+	color : #0067AB;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	margin-right : 3px;
+	
+}
+
+.shipment-status_tab button:hover {
+	background-color: #ddd;
+}
+
+.shipment-status_tab button.active {
+  background-color: #57AC1E;
+  color : #FFFFFF;
+  font-weight : bold;
+}
+
+.shipment-status_tabcontent {
+  display: none;
+  /*padding: 6px 6px;*/
+  border-top: 1px solid #ccc;
+  /* //border-top: none; */
+}
+
+.notification_tabcontent {
+	display: none;
+	/*padding: 6px 6px;*/
+	border-top: 1px solid #ccc;
+	/* //border-top: none; */
+  }
+
+.shipment-status_status {font-family : Arial; font-size : 20px; color : #0067AB;}
+.shipment-status_status_detail {font-family : Arial; font-size : 12px; color : #000000;padding-right : 15px}
+.shipment-status_status_detail_datetime {font-family : Arial; font-size : 14px; color : #707070}
+
+.shipment-status_airport {
+
+	font-family : Arial; 
+	font-size : 20px; 
+	font-weight : bold;
+	color : #0067AB;
+	padding-bottom : 10px;
+
+}
+
+.shipment-status_measurement {
+
+	font-family : Arial; 
+	font-size : 12px; 
+	color : #707070;
+	padding-bottom: 10px;
+
+}
+
+.shipment-status_measurement_figures {
+
+	font-family : Arial; 
+	font-size : 12px; 
+	color : #000000;
+	padding-bottom: 10px;
+
+}
+
+.shipment-status_map_awb_no {
+
+	font-family : Roboto;
+	font-size: 12px;
+	font-weight : bold;
+	color: #4C4C4C;
+	border-top-width : 10px;
+	border-bottom : 1px solid #c0c0c0;
+	margin-bottom : 10px;
+	height : 41px;
+}
+
+.shipment-status_map_flight {
+
+	font-family : Roboto;
+	font-size: 12px;
+	color: #000000;
+	margin-bottom : 10px
+	
+	
+	
+}
+
+.shipment-status_map_location {
+
+	font-family : Roboto;
+	font-size: 12px;
+	color: #707070;
+	
+	
+}
+
+.shipment-status_map_sensor_reading_title {
+
+	font-family : Roboto;
+	font-size: 12px;
+	font-weight : bold;
+	color : #0067AB;
+	/*color: #707070;*/
+	
+	
+}
+
+.shipment-status_map_sensor_reading {
+
+	font-family : Roboto;
+	font-size: 12px;
+	color: #3885C6;
+	
+	
+}
+
+.shipment-status_map_sensor_image_time {
+
+	font-family : Segoe UI; 
+	font-size : 12px; 
+	color : #659CC8;
+	border-top-width : 10px;
+	padding-top : 5px;
+	padding-bottom : 5px;
+
+}
+
+.shipment-status_map_sensor_link {
+
+	font-family : Roboto; 
+	font-size : 12px; 
+	color : #007987;
+
+}
+
+.shipment-status_sensor_reading {
+
+	font-family : Arial; 
+	font-size : 15px; 
+	font-weight : bold;
+	color : #0067AB;
+	
+
+}
+
+
+
+
+.shipment-status_sensor_reading_table_header {
+
+	font-family : Arial; 
+	font-size : 12px; 
+	color: White !important;
+	background-color : #0067AB;
+}
+
+.shipment-status_sensor_reading_table_header a {
+
+	font-family : Arial; 
+	font-size : 12px; 
+	color: White !important;
+	background-color : #0067AB;
+}
+
+.shipment-status_sensor_reading_table_cell {
+
+	font-family : Arial; 
+	font-size : 14px; 
+	color : #3E3E3E;
+
+}
+
+.shipment-status_latest_status_table_header {font-family : Arial; font-size : 14px; font-weight : bold; color : #7C7C7C;  padding : 5px}
+.shipment-status_latest_status_table_cell {font-family : Arial; font-size : 14px; color : #444444; border-bottom: 2px solid #F1F1F1; padding : 5px}
+
+.notification_latest_status_table_header {font-family : Arial; font-size : 14px; font-weight : bold; color : #7C7C7C;  padding : 5px}
+.notification_latest_status_table_cell {font-family : Arial; font-size : 14px; color : #444444; border-bottom: 2px solid #F1F1F1; padding : 5px}
+
+.shipment-status_booking_table_header {font-family : Arial; font-size : 10px; font-weight : bold; color : #707070; border-bottom: 2px solid #707070; padding : 5px}
+.shipment-status_booking_table_cell {font-family : Arial; font-size : 10px; font-weight : bold; color : #707070; padding : 5px}
+
+.shipment-status_device_button {
+  overflow: hidden;
+}
+
+.shipment-status_device_button button {
+	font-family : Arial; 
+	font-size : 10px;
+	border-radius: 10px;
+	background-color: inherit;
+	color : #0067AB;
+	float: left;
+	border: 2px solid #0067AB;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	margin : 10px;
+}
+
+.shipment-status_device_button button:hover {
+  background-color: #ddd;
+}
+
+.shipment-status_device_button button.active {
+  background-color: #0067AB;
+  color :  #FFFFFF;
+  font-weight : bold;
+}
+
+
+
+.shipment-status_sensor_reading_button {
+  overflow: hidden;
+}
+
+.shipment-status_sensor_reading_button button {
+	font-family : Arial; 
+	border-radius: 10px;
+	box-shadow : 0 4px 4px 1px rgba(0, 0, 0, 0.1);
+	background-color: inherit;
+	color : #0067AB;
+	float: left;
+	outline: none;
+	cursor: pointer;
+	padding: 5px 5px;
+	transition: 0.3s;
+	margin : 5px;
+	width : 260px;
+	height : 100px;
+	text-align : left;
+	vertical-align:middle;
+  
+}
+
+.shipment-status_sensor_reading_button button.active {
+  background-color: #EBEDEC;
+}
+
+.shipment-status_last_update_time {
+	font-family : Arial; 
+	font-size : 10px; 
+	font-weight : bold;
+	color : #707070;
+	padding-left : 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.shipment-status_event_time {
+	font-family : Arial; 
+	font-size : 10px; 
+	color : #707070;
+	padding-left : 5px;
+}
+
+.sensor_measurement {
+
+	font-family : Arial; 
+	font-size : 18px; 
+	font-weight : bold;
+	color : #707070;
+
+}
+
+/* Kendo UI Grid Pager Style Override - START */
+.k-pager-wrap .k-link.k-state-selected {
+    color: #fff;
+    background-color: #0067AB;
+}
+/* Kendo UI Grid Pager Style Override - END */
+
+/* Kendo UI Switch Style Override - START */
+.k-switch-off .k-switch-container {
+	font-family : Arial; 
+	font-size : 12px; 
+	border-color : #fff;
+    color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-off:hover .k-switch-container {
+	border-color : #fff;
+	color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-off:focus .k-switch-container {
+	border-color : #fff;
+	color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-off .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+.k-switch-off:hover .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+.k-switch-off:focus .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+
+
+
+
+.k-switch-on .k-switch-container {
+	font-family : Arial; 
+	font-size : 12px; 
+	border-color : #fff;
+    color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-on:hover .k-switch-container {
+	border-color : #fff;
+	color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-on:focus .k-switch-container {
+	border-color : #fff;
+	color: #fff;
+    background-color: #0067AB;
+}
+
+.k-switch-on .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+.k-switch-on:hover .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+.k-switch-on:focus .k-switch-handle {
+	border-color : #fff;
+	color: #fff;
+    background-color: #fff;
+}
+
+.k-switch-label-off, .k-switch-label-on {
+	color: #fff;
+}
+
+/* Kendo UI Switch Style Override - END */
+
+
+/*
+#Temperature-Scale .k-switch-off:hover .k-switch-container,
+{
+	color: #fff;
+    background-color: #0067AB;
+	background-image:none
+}
+
+#Temperature-Scale .k-switch-off.k-state-hover .k-switch-handle,
+{
+	color: #fff;
+    background-color: #0067AB;
+	background-image:none
+}
+
+#Temperature-Scale .k-switch-off.k-state-hover .k-switch-container {
+	color: #fff;
+    background-color: #0067AB;
+	background-image:none
+}
+
+#Temperature-Scale .k-switch-off .k-switch-container {
+	color: #fff;
+    background-color: #0067AB;
+	background-image:none
+}
+
+#Temperature-Scale .k-switch-on .k-switch-container {
+	border-color: #fff;
+    color: #fff;
+    background-color: #0067AB;
+}
+
+#Temperature-Scale .k-switch-on .k-switch-handle {
+    
+	border-color: #fff;
+    color: #fff;
+    background-color: #fff;
+    
+	background-image: url(textures/highlight.png);
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,.25) 0,rgba(255,255,255,0) 100%);
+	
+}
+
+#Temperature-Scale .k-switch-off .k-switch-handle,
+#Temperature-Scale .k-switch-off:hover .k-switch-handle
+ {
+    
+	border-color: #fff;
+    color: #fff;
+    background-color: #fff;
+
+	background-image: url(textures/highlight.png);
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,.25) 0,rgba(255,255,255,0) 100%);
+
+}
+
+#Temperature-Scale .k-switch-on .k-switch-handle {
+    
+    color: #fff;
+    background-color: #fff;
+    /*
+	background-image: url(textures/highlight.png);
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,.25) 0,rgba(255,255,255,0) 100%);
+	*/
+}
+*/
+
+
+/* Fading effect */
+/*
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+*/

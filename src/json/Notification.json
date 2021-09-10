@@ -1,0 +1,19 @@
+{
+    "notification":[
+        {
+            "notificationCode":"INFO",
+            "notificationDesc":"Departure later than scheduled time Actual depature on 19:20 27-05-2021",
+            "notificationTime":"2021-05-27T19:24:00Z"
+        },
+        {
+            "notificationCode":"WARN",
+            "notificationDesc":"Temperature exceed upper limited detect 18:22 27-05-2021",
+            "notificationTime":"2021-05-27T18:24:00Z"
+        },
+        {
+            "notificationCode":"DANG",
+            "notificationDesc":"Delivery at destination",
+            "notificationTime":"2021-05-28T19:24:00Z"
+        }
+    ]
+}

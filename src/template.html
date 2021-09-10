@@ -1,0 +1,930 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en-US" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths win win-10_0 webkit chrome chrome-92 chrome-92_0_4515_131 k-webkit k-webkit92 general logged"><head id="Head"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+
+
+<title>
+	Track Shipment
+</title><meta id="MetaKeywords" name="KEYWORDS" content=",DotNetNuke,DNN"><meta id="MetaGenerator" name="GENERATOR" content="DotNetNuke "><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW"><link href="./css/default.css" type="text/css" rel="stylesheet"><link href="./css/module.css" type="text/css" rel="stylesheet"><link href="./css/skin.css" type="text/css" rel="stylesheet"><script async="" src="./js/analytics.js"></script><script src="./js/jquery.js" type="text/javascript"></script><script src="./js/jquery-ui.js" type="text/javascript"></script><meta name="viewport" content="width=device-width,initial-scale=1"><link href="./css/enUS.css" type="text/css" rel="stylesheet"></head>
+<body id="Body">
+    
+<form method="post" action="#" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="jMC8ux023nuhFgnNppIZhkdPhxfEi9/MhjULCPSUnnrpS2gm71pQuD5/Nl4MIyMlCsIBK0hCw5pqv9I0ai8DLIm/6HVkP3wsfhzP3FDxXUZdwNoju+PHuO1iJfAgKnWdYQPJDxTaiEBY1hf65gU70feVcxDFs4n0Ses+Xb+l9sIUlQSWCP2PU8BB1iA=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="KNiZiHexPoVKOx2L-TZK6V1x7ZVDguk0-5FDsXrGBw3h5VgFljksJKLVrGo1">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="LJWSAruka68AjsB9WIPa6ylTrFEN9VyVFMgAnSPKo6znrlLMCEeX1yHE7LHrFe+dVmqkU7kMfeAOM5NOkCX+xXQtMK3PaLe9kst/B27Mzx18XUJEKBQg9zvQ/qSMAC/XmnBIoeZ9A7/ujpiXn4iijJM9oxLAoO7vm07+cN2UxUqfvOJeb6MLBvrDsjwYf+uxyOFz9W+7eRxl3h6mdzxl6Zw4z/RmQ1C3J0qu2zgSFZRbAr7WNlfdqkpbcWOMx8nQ3WNDEahNJWTO4IeDRgzeFV6Swoo=">
+</div><script src="./js/dnn.modalpopup.js" type="text/javascript"></script><script src="./js/dnncore.js" type="text/javascript"></script>
+
+<!--
+<script src="./Track_Shipment_files/WebResource.axd" type="text/javascript"></script>
+<script src="./Track_Shipment_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./Track_Shipment_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 90, '');
+//]]>
+</script>-->
+
+        
+        
+        
+
+<link href="./css/app.menu.css" rel="stylesheet">
+<!-- Google Analytics -->
+<script src="./js/ga.js"></script>
+
+<!-- JavaScript -->
+<script src="./js/skin.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/bootstrap-toggle.min.js"></script>
+<script src="./js/modernizr.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/angular_1.2.20_angular.min.js"></script>
+<script src="./js/bootstrap-tagsinput.min.js"></script>
+<script src="./js/bootstrap-tagsinput-angular.min.js"></script>
+<script src="./js/bootstrap-select.min.js"></script>
+<script src="./js/typeahead.bundle.js"></script>
+<script src="./js/bootstrap-datepicker_1.9.0.js"></script>
+<script src="./js/lodash.min_4.17.15.js"></script>
+<script src="./js/i18next.min.js"></script>
+<script src="./js/i18nextXHRBackend.min.js"></script>
+<script src="./js/old_version_browser.js"></script>
+<script src="./js/jquery-i18next.min.js"></script>
+<script src="./js/jquery.bind-first-0.2.3.min.js"></script>
+<script src="./js/jquery.signalR-2.2.1.min.js"></script>
+<script src="./js/hubs.js"></script>
+
+<!-- Styles -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/bootstrap-toggle.min.css" rel="stylesheet">
+<link href="./css/jquery-ui.css" rel="stylesheet">
+<link href="./css/toggle-switch.css" rel="stylesheet">
+<link href="./css/bootstrap-select.min_1.12.4.css" rel="stylesheet">
+<link href="./css/bootstrap-datepicker_1.9.0.css" rel="stylesheet">
+<link href="./css/bootstrap-tagsinput.css" rel="stylesheet">
+<link href="./css/typeaheadjs.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
+<link href="./css/skin.css" rel="stylesheet">
+	
+<!-- IE8 -->
+<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script>
+var _currentCulture = 'en-US';
+
+if (document.location.href.indexOf("/0/OldBrowser") == -1) {
+var browser = BrowserDetect.browser ? BrowserDetect.browser.name : undefined;
+var version = BrowserDetect.browser ? BrowserDetect.browser.value : undefined;
+
+	if (browser && browser.toUpperCase() == "MSIE" && parseInt(version.substring(0,version.indexOf("."))) <= 10) {
+		document.location.href = "/0/OldBrowser";
+	}
+
+	
+}
+
+<!-- i18n -->
+jqueryI18next.init(i18next, $, {
+	tName: 't',
+	i18nName: 'i18n',
+	handleName: 'localize',
+	selectorAttr: 'data-i18n',
+	targetAttr: 'i18n-target',
+	optionsAttr: 'i18n-options',
+	useOptionsAttr: false,
+	parseDefaultValueFromContent: true
+});
+
+i18next.use(window.i18nextXHRBackend).init({
+	fallbackLng: 'en-US',
+	lng: _currentCulture,
+	backend: {
+	  loadPath: '/locales/{{ns}}_{{lng}}.json',
+	  addPath: '/locales/add/{{ns}}_{{lng}}.json', // unused
+	  allowMultiLoading: false
+    }
+}, function(err, t) {
+	$("html").localize();
+});
+
+$(function() {
+	i18nInitCore("20191219");
+});
+
+</script>
+
+<!-- Error Message Template -->
+<script id="error_main_template" type="text/x-template">
+    <div class="error-box">
+        <p class="error-message">$ERR_MESSAGE$</p>
+        <div class="errorTable">
+            <div class="errorTableBody">
+                $ERR_ITEMS$
+            </div>
+        </div>
+    </div>
+</script>
+<script id="error_item_template" type="text/x-template">
+    <div class="errorTableRow">
+        <div class="errorTableCell">$ERR_TITLE$</div>
+        <div class="errorTableCell"><span class="awb">$ERR_DESCRIPTION$</span></div>
+    </div>
+</script>
+
+<div class="d-off-canvas-wrapper d-example general_nav">
+	<div class="general_nav_inner">	
+			<div class="flex-box-container">
+				<!-- Menu -->
+				<div id="app" class="wrap"><div data-v-6b6bd2ad="" class="wrap" style=""><div data-v-6b6bd2ad="" id="mobile_logo" title="EzyCargo" class="header-wrapper__logo logo"></div><div data-v-6b6bd2ad="" id="logo" class="logo-container"><a data-v-6b6bd2ad="" class="closebtn" style="display: none;"><svg data-v-6b6bd2ad="" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" class="svg-inline--fa fa-times fa-w-11 fa-1x"><path data-v-6b6bd2ad="" fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" class=""></path></svg></a></div><div data-v-6b6bd2ad="" id="hamburger"><span data-v-6b6bd2ad=""></span><span data-v-6b6bd2ad=""></span><span data-v-6b6bd2ad=""></span></div><div data-v-6b6bd2ad="" id="myNav"><nav data-v-496691e8="" data-v-6b6bd2ad="" id="menu" class="overlay-content" style="height: 10px;"><div data-v-496691e8="" id="nav_menu"><div data-v-496691e8="" class="menu-header-container"><a data-v-496691e8="" href="#" title="Ezycargo_UAT" oncontextmenu="return false;" class="header-wrapper__logo logo" style="width: 100px; height: 40px;"></a>
+				
+				<a data-v-496691e8="" href="./index.html" id="menudashboardlink" title="Dash board" oncontextmenu="return false;" class="menudashboardlink"><div data-v-496691e8="" class="menudashboard"> Dashboard </div></a>
+				
+				<a data-v-496691e8="" href="./booking.html" style="text-decoration: none" id="menulink" oncontextmenu="return false;" class="menulink"><p data-v-496691e8="" id="dropdownHeader_0" class="mainMenu"> Booking </p></a>
+				
+				<a data-v-496691e8="" href="./trackshipment.html" style="text-decoration: none" id="menulink" oncontextmenu="return false;" class="menulink"><p data-v-496691e8="" id="dropdownHeader_1" class="mainMenu"> Track Shipment </p></a>
+				
+				<!----></div></div><form data-v-496691e8="" id="form1" method="post" action="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment"><input data-v-496691e8="" type="hidden" id="CompanyID" name="CompanyID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="UserID" name="UserID" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="SessionID" name="SessionID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyPIMA" name="CompanyPIMA" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="COSACID" name="COSACID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyName" name="CompanyName" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="TargetURL" name="TargetURL" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="Lang" name="Lang" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiToken" name="ApiToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="RefreshToken" name="RefreshToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiTokenExpiryTime" name="ApiTokenExpiryTime" value=""><br data-v-496691e8=""><br data-v-496691e8=""></form></nav></div></div></div>
+				
+
+<div class="navbar-form navbar-right">
+    <div id="profile_blk" class="profile_blk">
+	    <div class="notify">
+		    <div class="notify_switch disabled" data-toggle="dropdown" id="dropdownMenu1"></div>
+            <div id="profile_alert_cnt" class="disabled"><span>0</span></div>
+		    <div aria-labelledby="dropdownMenu1" class="panel_news">			
+		    </div>
+	    </div>
+        <span class="divider_v disabled"></span>
+	    <div class="profile_txtblk">
+		    <div aria-expanded="false" class="profile_switch" data-toggle="dropdown" id="dropdownMenu9">
+			    <div class="profile_co">
+				    <span id="profile_companyid">GLS</span>
+			    </div>
+			    <div class="profile_user">
+				    <span id="profile_username">ADMIN</span>
+			    </div>
+		    </div>
+		    <div aria-labelledby="dropdownMenu9" class="profile_panel">
+				<a id="dnn_GLS_PROFILE_lnkLogout" data-i18n="common.Logout" href="#">Logout</a>
+				
+				
+		    </div>
+		    <div class="profile_close"></div>
+	    </div>
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+	    $("html").addClass("logged");
+    }, 1000);
+</script>			
+			</div>
+	</div>
+</div>
+
+
+<!-- Page Content -->
+<div class="pageContent">
+<main role="main">
+<div id="dnn_ContentPane" class="contentPane">
+<div class="DnnModule DnnModule-TrackAndTrace DnnModule-385"><a name="385"></a>
+<div class="DNNContainer_noTitle logged js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+<div id="dnn_ctr385_ContentPane"><!-- Start_Module_385 -->
+<div id="dnn_ctr385_ModuleContent" class="DNNModuleContent ModTrackAndTraceC">
+
+</main>
+</div>
+
+<!-- Page Content END-->
+</form>
+
+<div id="loading" class="container wbg disabled" style="display: block; width: 100%">
+    <div class="loading-main">
+        <span id="loading_message" data-i18n="common.Loading">Loading...</span>
+    </div>
+</div>
+<div id="loading_partial" class="loading-panel disabled">
+	<span id="loading_message_partial" data-i18n="common.LoadingMore">Loading more results. This may take a while...</span>
+</div>
+<style>
+#loading {
+	position: fixed;
+    margin-top: 240px;
+    top: 0px;
+    z-index: 999;
+}
+
+@media screen and (max-width: 977px)
+{
+	#loading {
+		margin-top: 42px;
+	}
+}
+</style>
+
+<footer class="footer" style="margin-top: 296px;"> 
+	<div class="container">
+		<div class="blkl">
+			<div class="blklogo"><img src="./img/logo_gls.png" title="Global Logistics System (HK)Co.Ltd">
+				<span>
+					<span>©</span>
+					<span id="footer-year">2021</span>&nbsp;
+					<span data-i18n="footer.GLS">Global Logistics System (HK) Co. Ltd</span><br>
+					<span data-i18n="footer.Copyright">All rights reserved.</span>
+				</span>
+			</div>
+			<ul class="mainmenu">
+				<li><a data-i18n="menu.TrackShipment" href="#">Booking</a></li>
+				<li><a data-i18n="menu.FlightAvailability" href="#">Track Shipment</a></li>
+			</ul>
+			<div class="blkc"></div>
+		</div>
+		<div class="blkr">
+			<img src="./img/icon_gn_phone.png">
+			<span data-i18n="footer.Helpdesk">Help desk</span>
+			<span>+852 2838 1999  </span><br>
+			
+
+<span data-i18n="footer.Language">Languages</span><span class="dot"></span>   
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_lnk_enUS" class="fglink lang_enUS" href="#">English</a><span class="dot lang_enUS"></span>
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_lnk_zhHK" class="fglink lang_zhHK" href="#">繁體中文</a><span class="dot lang_zhHK"></span>
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_lnk_zhCN" class="fglink lang_zhCN" href="#">简体中文</a><span class="dot lang_zhCN"></span>
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_lnk_jaJP" class="fglink lang_jaJP" href="#">日本語</a><br>
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_Lnk_deDe" class="fglink" href="#">Deutsche</a><span class="dot"></span>
+<a id="dnn_GLS_FOOTER_GLS_LANGUAGE_Lnk_esES" class="fglink" href="#">Español</a>	  
+		</div>
+		<div class="blkr" style="clear: right">
+			<span id="classicLink" class="">
+				<a id="classicLinkHref_1" href="#" class="btn_classic">
+					<span data-i18n="common.EzyCargoClassic" style="font-size:13px">EzyCargo Classic</span>
+				</a>
+			</span>
+		</div>
+		<div class="blkc"></div>
+	</div>
+</footer>
+
+<style>
+    .mainmenu li a {
+		color: #fff;
+		text-decoration: none;
+		cursor: pointer;
+    }
+</style>
+	  
+<script>
+
+$(document).ready(function(){
+    $("#d-off-canvas-trigger").click(function(){
+        $(".active_page").toggleClass(function(){
+            return "freeze_page";
+        });
+    });
+});
+$(document).ready(function() {
+    $(window).resize(function() {
+		var bodyheight = $(window).height();
+		$(".navbar-collapse.collapse").height(bodyheight-105);
+    }); 
+   
+    $("#footer-year").html(new Date().getFullYear());
+});
+
+function FootRedirect(subUrl){
+	window.location.href = window.location.origin + '/' + i18next.language + subUrl;
+}
+</script>
+
+<!-- Dialog -->
+<div>
+	<style>
+    .bootstrap_modal {
+        z-index: 9991;
+    }
+	
+	.bootstrap_modal .modal-header{
+		background: #00AEEB;
+		color: white;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+
+    .bootstrap_modal .btn {
+        background: #00AEEB;
+        padding: 6px 30px;
+        color: #FFF;
+        font-size: 16px;
+        border-radius: 2px;
+        font-family: inherit;
+    }
+
+    .bootstrap_modal #message {
+        white-space: pre-wrap;
+    }
+</style>
+
+<div id="modal" class="modal bootstrap_modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="title" data-i18n="common.System">common.System</h4>
+            </div>
+            <div class="modal-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="btn_confirm" type="button" class="btn btn-default" data-i18n="dialog.Confirm" style="display: none;">Confirm</button>
+                <button id="btn_close" type="button" class="btn btn-default" data-i18n="dialog.Close">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+	
+    var DialogManager = {
+
+        alert: function (header, msg, close, modalOpts) {
+            var dialogManager = this;
+			
+			var opts = _.merge(this.getDefModalOpts(), modalOpts);
+			$("#modal").modal(opts);
+			
+            if (header)
+                $('#modal #title').text(header);
+
+            if (Array.isArray(msg))
+                $('#modal #message').text(dialogManager.getMsgFromArray(msg));
+            else
+                $('#modal #message').text(msg);
+
+            $('#modal #btn_close').click(function () {
+                if (typeof close === "function") {
+                    close();
+                }
+                $("#modal").modal('hide');
+            });
+        },
+
+        confirm: function (header, msg, confirm, close, modalOpts) {
+            var dialogManager = this;
+			
+			var opts = _.merge(this.getDefModalOpts(), modalOpts);
+			$("#modal").modal(opts);
+			
+            if (header)
+                $('#modal #title').text(header);
+
+            if (Array.isArray(msg))
+                $('#modal #message').text(dialogManager.getMsgFromArray(msg));
+            else
+                $('#modal #message').text(msg);
+				
+            $('#modal #btn_confirm').show();
+
+            $('#modal #btn_confirm').click(function () {
+                if (typeof confirm === "function") {
+                    confirm();
+                }
+                $("#modal").modal('hide');
+            });
+
+            $('#modal #btn_close').click(function () {
+                if (typeof close === "function") {
+                    close();
+                }
+                $("#modal").modal('hide');
+            });
+        },
+
+        reset: function () {
+			$("#modal").data('bs.modal', null);
+		
+            $('#modal #title').text(i18next.t('common.System'));
+            $('#modal #message').text('');
+            $('#modal #btn_confirm').hide();
+			
+            $('#modal #btn_confirm').off('click');
+            $('#modal #btn_close').off('click');
+        },
+
+        getMsgFromArray: function (arr) {
+            return arr.join("\n");
+        },
+		
+		getDefModalOpts: function () {
+			return {
+				backdrop: true,
+				show: true,
+				keyboard: true
+			}
+		}
+    };
+
+    $(function () {
+        DialogManager.reset();
+		$('#modal').on('hide.bs.modal', function () {
+			DialogManager.reset();
+		})
+
+		$(document).on('keydown', function (e) {
+			if(!($("#modal").data('bs.modal') || {}).isShown)
+				return;
+				
+			//enter
+			if (e.which == 13) {
+				$("#btn_confirm").click();
+				e.stopPropagation();
+			}
+			//escape
+			else if(e.which == 27){
+				$("#btn_close").click();
+				e.stopPropagation();
+			}
+		})
+    })
+</script>
+</div>
+        <input name="ScrollTop" type="hidden" id="ScrollTop">
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" autocomplete="off">
+</body></html>
