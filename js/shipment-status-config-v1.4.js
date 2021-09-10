@@ -392,6 +392,7 @@ var vue_ShipmentStatus
 
 var strJSON_FreightStatus
 var objOneRecord
+var objNotification
 var objBookingItems
 var objLatestStatusItems
 var objShipmentHistoryItems

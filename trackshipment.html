@@ -1390,6 +1390,10 @@ $(function() {
 			$.getJSON("json/OneRecord_160-62214250v2.json", function(json) {
 				objOneRecord = json;
 			});
+
+            $.getJSON("json/Notification.json", function(json) {
+                objNotification = json;
+            });
 			
             //objOneRecord = objResult
             var UTDeviceList = objOneRecord.ioTDevices.filter(function (devices) { return devices.deviceDescription == "UltraTrackDevice"; }).sort(function (a, b) {

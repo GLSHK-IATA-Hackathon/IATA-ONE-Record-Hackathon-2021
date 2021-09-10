@@ -307,11 +307,7 @@ function getShipmentHistoryItems() {
 
 }
 
-function getNotificationItems() {
-	var objNotification;
-	$.getJSON("../json/Notification.json", function(json) {
-		objNotification = json;
-	});
+function getNotificationItems() {	
 	return objNotification.notification;
 }
 
