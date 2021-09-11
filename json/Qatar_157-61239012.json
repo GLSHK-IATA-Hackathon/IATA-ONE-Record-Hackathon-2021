@@ -1,0 +1,63 @@
+{
+    "cargoTrackingSOs": [
+        {
+            "docType": "MAWB",
+            "docPrefix": "157",
+            "docNumber": "61239012",
+            "snrNumber": "2487964",
+            "volumeUnit": "MC",
+            "agentCode": null,
+            "agentName": null,
+            "depPcs": 0,
+            "origin": "BOM",
+            "destination": "DOH",
+            "pieces": 2200,
+            "weight": 3303,
+            "volume": 19.897,
+            "shipmentInfo": "MAWB  157-61239012 SNR 2487964 BOM-DOH 2200 Pcs 3303.0 Kgs 19.897 MC",
+            "cargoTrackingFlightList": [
+                {
+                    "flightNumber": "QR-5601 ",
+                    "departedDate": "08-Jan-2020 00:00",
+                    "arrivalDate": null,
+                    "operationType": null,
+                    "segmentOfDeparture": "BOM",
+                    "segmetnOfArrival": "DOH",
+                    "colourSts": null,
+                    "depPcs": 0,
+                    "std": null,
+                    "sta": "",
+                    "pieces": 2200,
+                    "weight": 3303.0,
+                    "volume": 19.897,
+                    "weightUnit": null,
+                    "volumeUnit": null,
+                    "flightStatus": "Departed",
+                    "bkgStatus": "HK",
+                    "cargoTrackingMvtStausList": null
+                }
+            ],
+            "cargoTrackingMvtStausList": [
+                {
+                    "movementStatus": "DEP",
+                    "cargoTrackingMvtULDSOs": [
+                        {
+                            "uldOwnerCode": "QR",
+                            "uldSerialNumber": "23131",
+                            "uldType": "PMC"
+                        }
+                    ],
+                    "createdDate": "07-Jan-2020 10:01",
+                    "eventAirport": "BOM",
+                    "eventDate": "08-Jan-2020 00:00",
+                    "shipmentWeight": 3303,
+                    "shipmentVolume": 19.897,
+                    "shipmentPieces": 2200,
+                    "partOrTotal": "T",
+                    "movementDetails": "Departed On QR 5601/08-Jan-2020 ,2200 Pcs 3303 Kgs, PMC23131QR, 08-Jan-2020  at BOM"
+                }
+            ],
+            "trackingAptMvtStausSOs": null
+        }
+    ]
+}

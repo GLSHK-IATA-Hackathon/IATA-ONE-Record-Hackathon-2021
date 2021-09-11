@@ -1,0 +1,427 @@
+{
+    "shipmentTrackingStatus": {
+        "shipment": {
+            "shipmentId": {
+                "carrierNumericCode": "020",
+                "aWBNumber": "94616653",
+                "isAWBNoCheckDigitUsed": "true",
+                "aWBSequenceNumber": 1
+            }
+        },
+        "status": "MAN",
+        "milestonePlan": {
+            "version": "0",
+            "milestones": {
+                "milestone": [
+                    {
+                        "type": "RCS",
+                        "station": "MAD",
+                        "plannedTime": "2021-09-10T21:31:00Z",
+                        "actualTime": "2021-09-10T20:18:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 1,
+                                "weight": 5.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "7623S",
+                            "flightDate": "2021-09-11",
+                            "flightSegmentOrigin": "MAD",
+                            "flightSegmentDestination": "FRA"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "MAN",
+                        "station": "MAD",
+                        "plannedTime": "2021-09-11T01:07:00Z",
+                        "actualTime": "2021-09-11T20:43:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 1,
+                                "weight": 5.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "7623S",
+                            "flightDate": "2021-09-11",
+                            "flightSegmentOrigin": "MAD",
+                            "flightSegmentDestination": "FRA"
+                        },
+                        "events": {
+                            "event": [
+                                {
+                                    "type": "MAN",
+                                    "station": "MAD",
+                                    "plannedTime": "2021-09-11T01:07:00Z",
+                                    "actualTime": "2021-09-11T20:43:00Z",
+                                    "actualTotals": [
+                                        {
+                                            "noOfPieces": 1,
+                                            "weight": 5.0,
+                                            "isComplete": "true"
+                                        }
+                                    ],
+                                    "category": "F"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "DEP",
+                        "station": "MAD",
+                        "plannedTime": "2021-09-11T02:01:00Z",
+                        "actualTime": "2021-09-11T00:45:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 1,
+                                "weight": 5.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "7623S",
+                            "flightDate": "2021-09-11",
+                            "flightSegmentOrigin": "MAD",
+                            "flightSegmentDestination": "FRA"
+                        },
+                        "events": {
+                            "event": [
+                                {
+                                    "type": "DEP",
+                                    "station": "MAD",
+                                    "plannedTime": "2021-09-11T02:01:00Z",
+                                    "actualTime": "2021-09-11T00:45:00Z",
+                                    "actualTotals": [
+                                        {
+                                            "noOfPieces": 1,
+                                            "weight": 5.0,
+                                            "isComplete": "true"
+                                        }
+                                    ],
+                                    "category": "F"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ARR",
+                        "station": "FRA",
+                        "plannedTime": "2021-09-12T03:00:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "7623S",
+                            "flightDate": "2021-09-11",
+                            "flightSegmentOrigin": "MAD",
+                            "flightSegmentDestination": "FRA"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "RCF",
+                        "station": "FRA",
+                        "plannedTime": "2021-09-12T07:15:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "7623S",
+                            "flightDate": "2021-09-11",
+                            "flightSegmentOrigin": "MAD",
+                            "flightSegmentDestination": "FRA"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "MAN",
+                        "station": "FRA",
+                        "plannedTime": "2021-09-12T11:40:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "DEP",
+                        "station": "FRA",
+                        "plannedTime": "2021-09-12T12:40:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "ARR",
+                        "station": "IST",
+                        "plannedTime": "2021-09-12T16:40:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "RCF",
+                        "station": "IST",
+                        "plannedTime": "2021-09-13T10:01:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "NFD",
+                        "station": "IST",
+                        "plannedTime": "2021-09-13T10:10:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    },
+                    {
+                        "type": "DLV",
+                        "station": "IST",
+                        "plannedTime": "2021-09-13T10:10:00Z",
+                        "plannedTotals": {
+                            "noOfPieces": 1,
+                            "weight": 0.0
+                        },
+                        "actualTotals": [
+                            {
+                                "noOfPieces": 0,
+                                "weight": 0.0,
+                                "isComplete": "true"
+                            }
+                        ],
+                        "flight": {
+                            "flightCarrierCode": "LH",
+                            "flightNumber": "1300",
+                            "flightDate": "2021-09-12",
+                            "flightSegmentOrigin": "FRA",
+                            "flightSegmentDestination": "IST"
+                        },
+                        "events": {}
+                    }
+                ]
+            }
+        },
+        "booking": {
+            "product": {
+                "productName": "General Cargo",
+                "productConditions": {
+                    "sPLList": {
+                        "splCode": [
+                            "SPX",
+                            "CSL",
+                            "EAP",
+                            "ECC",
+                            "SLY",
+                            "GEN"
+                        ]
+                    }
+                }
+            },
+            "totals": {
+                "noOfPieces": 1,
+                "weight": 5.0
+            },
+            "originalTimeFrame": {
+                "lAT": "2021-09-10T21:31:00Z",
+                "tOA": "2021-09-13T10:10:00Z"
+            },
+            "origin": "MAD",
+            "destination": "IST",
+            "bookingTime": "2021-09-09T15:52:26Z",
+            "isSplitBooking": "false",
+            "confirmationStatus": "KK"
+        },
+        "events": {
+            "event": [
+                {
+                    "type": "MAN",
+                    "station": "MAD",
+                    "actualTime": "2021-09-11T20:43:00Z",
+                    "actualTotals": [
+                        {
+                            "noOfPieces": 1,
+                            "weight": 5.0
+                        }
+                    ],
+                    "category": "F"
+                },
+                {
+                    "type": "DEP",
+                    "station": "MAD",
+                    "actualTime": "2021-09-11T00:45:00Z",
+                    "actualTotals": [
+                        {
+                            "noOfPieces": 1,
+                            "weight": 5.0
+                        }
+                    ],
+                    "category": "F"
+                },
+                {
+                    "type": "RCS",
+                    "station": "MAD",
+                    "actualTime": "2021-09-10T20:18:00Z",
+                    "actualTotals": [
+                        {
+                            "noOfPieces": 1,
+                            "weight": 5.0
+                        }
+                    ],
+                    "category": "S"
+                },
+                {
+                    "type": "BKD",
+                    "station": "MAD",
+                    "actualTime": "2021-09-09T15:52:28Z",
+                    "actualTotals": [
+                        {
+                            "noOfPieces": 1,
+                            "weight": 5.0
+                        }
+                    ],
+                    "category": "S"
+                }
+            ]
+        },
+        "efreightDetails": {
+            "preCheckStatus": {
+                "precheckStatusCode": "F",
+                "precheckStatusDescription": "Failed",
+                "precheckTime": "2021-09-09T14:33:39Z",
+                "precheckTimeUTC": "2021-09-09T14:33:39Z"
+            }
+        },
+        "shipmentStatusEvents": {
+            "event": [
+                {
+                    "category": "F",
+                    "type": "MAN",
+                    "station": "MAD",
+                    "flight": {
+                        "flightCarrierCode": "LH",
+                        "flightNumber": "7623S",
+                        "flightDate": "2021-09-11",
+                        "flightSegmentOrigin": "MAD",
+                        "flightSegmentDestination": "FRA"
+                    }
+                }
+            ]
+        }
+    }
+}

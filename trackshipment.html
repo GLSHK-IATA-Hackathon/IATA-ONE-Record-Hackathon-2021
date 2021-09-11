@@ -621,7 +621,7 @@ $(function() {
 				
 				<a data-v-496691e8="" href="./trackshipment.html" style="text-decoration: none" id="menulink" oncontextmenu="return false;" class="menulink"><p data-v-496691e8="" id="dropdownHeader_1" class="mainMenu"> Track Shipment </p></a>
 				
-				<!----></div></div><form data-v-496691e8="" id="form1" method="post" action="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment"><input data-v-496691e8="" type="hidden" id="CompanyID" name="CompanyID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="UserID" name="UserID" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="SessionID" name="SessionID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyPIMA" name="CompanyPIMA" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="COSACID" name="COSACID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyName" name="CompanyName" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="TargetURL" name="TargetURL" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="Lang" name="Lang" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiToken" name="ApiToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="RefreshToken" name="RefreshToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiTokenExpiryTime" name="ApiTokenExpiryTime" value=""><br data-v-496691e8=""><br data-v-496691e8=""></form></nav></div></div></div>
+				<!----></div></div><form data-v-496691e8="" id="form1" method="post" action="/trackshipment"><input data-v-496691e8="" type="hidden" id="CompanyID" name="CompanyID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="UserID" name="UserID" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="SessionID" name="SessionID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyPIMA" name="CompanyPIMA" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="COSACID" name="COSACID" value=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="CompanyName" name="CompanyName" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="TargetURL" name="TargetURL" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="Lang" name="Lang" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiToken" name="ApiToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="RefreshToken" name="RefreshToken" value=""><br data-v-496691e8=""><br data-v-496691e8=""><input data-v-496691e8="" type="hidden" id="ApiTokenExpiryTime" name="ApiTokenExpiryTime" value=""><br data-v-496691e8=""><br data-v-496691e8=""></form></nav></div></div></div>
 				
 
 <div class="navbar-form navbar-right">
@@ -720,6 +720,10 @@ $(function() {
     <!-- Sensor Readings  -->
     <script src="./js/shipment-status-sensor-readings.js"></script>
     <!-- END -- Shipment Status related JavaScript -->
+	<script src="./js/shipment-status-LH-mapper.js"></script>
+    <script src="./js/shipment-status-DCSA-mapper.js"></script>
+    <script src="./js/jsonpatch.js"></script>
+    <script src="./js/jsonpatch.min.js"></script>
     <!-- MODIFICATION END : Added at 20200830 for javascript used by revamped Shipment Status -->
 
 
@@ -753,8 +757,9 @@ $(function() {
         }
 
         $(function () {
-            $("#tnt_awbPrefix").val("160");
-            $("#tnt_awbSuffix").val("62214250");
+            $("#tnt_awbPrefix").val("020");
+            $("#tnt_awbSuffix").val("94616653");
+            $("#tnt_multi_input").val("160-10035395; 020-89313173; ");
             enableClassicLink("/");
 
             i18nInit("MVC/TrackAndTrace", "20181127002");
@@ -945,8 +950,8 @@ $(function() {
             }
 			
 			
-			//202109  display AWB 160-62214250
-			//tntDisplaySingleV2('hihi');
+			//202109  display AWB 160-77777770
+			//tntDisplaySingleV2('');
         });
 
 
@@ -973,7 +978,7 @@ $(function() {
             // }
             // end
             
-            // $.getJSON("json/OneRecord_160-62214250v2.json", function(json) {
+            // $.getJSON("json/OneRecord_160-77777770.json", function(json) {
 			// 	objOneRecord = json;
 			// });
 
@@ -982,31 +987,184 @@ $(function() {
             // });
             // tntToggleDisplay(displayStatus.single);
             // tntDisplaySingleV2("");
-            tntPerformSearch2(multi, forceUpdate);
+            tntPerformSearch(multi, forceUpdate);
         }
 
         function tntPerformSearch2(multi, forceUpdate){
             var awbPrefix = $("#tnt_awbPrefix").val();
-            //var awbSuffix = $("#tnt_awbSuffix").val();
-            var awbSuffix = "39510483";
-            var company = awbPrefix == "160" ? "CX" : "";
-            var url = "https://sc-test-api-ezyonerecord.ezbiz.com/sb-onerecordapi/companies/" + company + "/los/" + awbPrefix + "-" + awbSuffix + "/events"
-            $.ajax({
-                method: "GET",
-                url: url,
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlenljYXJnb2FwaSIsIm5iZiI6MTYzMTI1NDY3NiwiZXhwIjoxNjMzOTMzMTM2LCJpYXQiOjE2MzEyNTQ3MzYsImRhdGEiOiJkOGFEVHlWbFpJM1B6eWhnTHh6Q1BYeUlxcXpNV0dQaEFDU1dCS3ZBU2YrMzU5N1IwcXg5SWsyU2tjK3A5T0lReEQxekJoSno5aURVcEZneDZIQ3UrTHBsRVRQYVIyc3ZVK0hMV3AwRHNHaTMxU0M3eGhPYVA0NUpjVUVkWWZQa2l0enhTYlowdE1OTm8yMno4ZGtJWkF6SW9qM0U1clgxWFBTa3AxdEtyU3JVa2laTCtiYXdGTlFJeGNjRTRRT0tEWlcwajF0WGg2aUNuYk04MEhLeGV0WkhzbjhFSHBPRXlYeGVmdG5PU3hKbENTUzNVbVpSSXpxT01GZ1pVTUF5QjFNQkdHUi9SNko4b2w0THRvQWkzWGlFcEhsN3EzdTBxMkpBSTVWa3RuQlJNOHh3N3JocGtmQytsdnR3SEo0NlM4ZDdCcGpPTng5d3haREQ0UXMvVFRnckg2RHFLbm5jbURiK0Y0WTFGVVF5K2pPVkczRG91UTVIWitreHhFMTBHYndOOGhzUnBiYkFCMDd6Q0trU3NUeGphMW9YNUZFdklBWjhyem1FbUdhVjJmRC9pYVgrWEYyNEZrUlhZTHlEQTFJMzdxUGFmQzZJV1dFQjZIK1Q5VGJEY2ZENnc1L2swL2VMRHdLRmFCVGxZMUZiSkVidGdkbk5CU2YxYVBGM3FUdWxlVlkwQkQwQnZFNjRFTmNNYjZPOC9LTExjN0lMNS83aVNhUXRMbHR5bjVuZ1NNdkxaSnJyVkp1M3c2aXJ5U0tKQjRRZG02V1QzVlByMVZPOWE3SklkaWdYdEJYQStaeE50RnNDZXljPSJ9.bbjn1C-T-hjejCKmS4pGkH90AHWMxnAJIXj8d52OO_DoxQq1-kwLoN0UqQaOBGhL6RuFnBg20KF0M96yq6k8BwkZ5ZhdN3rSnBiXJN7afyeZQv0SWuG75h_HowXMPHg9hptX1kLGGjB6krnv3tQp5wOmKgrsghjUvJSeL6cHny2RBGKrXcqfLMIgnuQB8qqln73gHyUDf-iZOU6XD5aZ1g9sLOyyTSpKqqobgAFL8TscwExQhzOoiaFW3pf4hEQDjibErooRrwcbwAN1ZArIelim1TxR2-6vRHH9M76pz4oOfCsMcbFeHrZLOTMyvrPsaK4rE2fVn2JcO9fG2mWslQ');
-                }
-            })
-            .done(function(data){
-                console.log(data);
-                objOneRecord = data;
+            var awbSuffix = $("#tnt_awbSuffix").val();
+            // var awbPrefix = "020";
+            // var awbSuffix = "89313173";
+            var company;
+            switch(awbPrefix){
+                case "160": company = "CX"; break;
+                case "020": company = "LH"; break;
+            }
+
+            if(company == "CX"){
+                 var url = "https://sc-test-api-ezyonerecord.ezbiz.com/sb-onerecordapi/companies/" + company + "/los/" + awbPrefix + "-" + awbSuffix + "/events"
+                 $.ajax({
+                    method: "GET",
+                    url: url,
+                    timeout: 3000,
+                    beforeSend: function (xhr) {
+                         xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlenljYXJnb2FwaSIsIm5iZiI6MTYzMTI1NDY3NiwiZXhwIjoxNjMzOTMzMTM2LCJpYXQiOjE2MzEyNTQ3MzYsImRhdGEiOiJkOGFEVHlWbFpJM1B6eWhnTHh6Q1BYeUlxcXpNV0dQaEFDU1dCS3ZBU2YrMzU5N1IwcXg5SWsyU2tjK3A5T0lReEQxekJoSno5aURVcEZneDZIQ3UrTHBsRVRQYVIyc3ZVK0hMV3AwRHNHaTMxU0M3eGhPYVA0NUpjVUVkWWZQa2l0enhTYlowdE1OTm8yMno4ZGtJWkF6SW9qM0U1clgxWFBTa3AxdEtyU3JVa2laTCtiYXdGTlFJeGNjRTRRT0tEWlcwajF0WGg2aUNuYk04MEhLeGV0WkhzbjhFSHBPRXlYeGVmdG5PU3hKbENTUzNVbVpSSXpxT01GZ1pVTUF5QjFNQkdHUi9SNko4b2w0THRvQWkzWGlFcEhsN3EzdTBxMkpBSTVWa3RuQlJNOHh3N3JocGtmQytsdnR3SEo0NlM4ZDdCcGpPTng5d3haREQ0UXMvVFRnckg2RHFLbm5jbURiK0Y0WTFGVVF5K2pPVkczRG91UTVIWitreHhFMTBHYndOOGhzUnBiYkFCMDd6Q0trU3NUeGphMW9YNUZFdklBWjhyem1FbUdhVjJmRC9pYVgrWEYyNEZrUlhZTHlEQTFJMzdxUGFmQzZJV1dFQjZIK1Q5VGJEY2ZENnc1L2swL2VMRHdLRmFCVGxZMUZiSkVidGdkbk5CU2YxYVBGM3FUdWxlVlkwQkQwQnZFNjRFTmNNYjZPOC9LTExjN0lMNS83aVNhUXRMbHR5bjVuZ1NNdkxaSnJyVkp1M3c2aXJ5U0tKQjRRZG02V1QzVlByMVZPOWE3SklkaWdYdEJYQStaeE50RnNDZXljPSJ9.bbjn1C-T-hjejCKmS4pGkH90AHWMxnAJIXj8d52OO_DoxQq1-kwLoN0UqQaOBGhL6RuFnBg20KF0M96yq6k8BwkZ5ZhdN3rSnBiXJN7afyeZQv0SWuG75h_HowXMPHg9hptX1kLGGjB6krnv3tQp5wOmKgrsghjUvJSeL6cHny2RBGKrXcqfLMIgnuQB8qqln73gHyUDf-iZOU6XD5aZ1g9sLOyyTSpKqqobgAFL8TscwExQhzOoiaFW3pf4hEQDjibErooRrwcbwAN1ZArIelim1TxR2-6vRHH9M76pz4oOfCsMcbFeHrZLOTMyvrPsaK4rE2fVn2JcO9fG2mWslQ');
+                    }
+                 })
+                 .done(function(data){
+                     objOneRecord = data;
+                     tntToggleDisplay(displayStatus.single);
+                     tntDisplaySingleV2("");
+                 })
+                 .fail(function(err){
+                    $.getJSON("json/OneRecord_160-77777770.json", function(json) {
+                        objOneRecord = json;
+                    });
+                 });
+				 
+				 $.getJSON("json/Notification.json", function(json) {
+                    objNotification = json;
+                });
+
+                tntToggleDisplay(displayStatus.single);
+                tntDisplaySingleV2("");
+            }
+            else if(company == "LH"){
+                $.getJSON("json/LH_020-89313173.json", function(json) {
+                    objOneRecord = LHmapper(json);
+					console.log(objOneRecord);
+                });
+
                 $.getJSON("json/Notification.json", function(json) {
                     objNotification = json;
                 });
                 tntToggleDisplay(displayStatus.single);
                 tntDisplaySingleV2("");
+            }
+            
+        }
+
+        function convertCX(json){
+
+        }
+
+        function convertLH(LHJson){
+            var oneRecord = {};
+            $.getJSON("json/OneRecord_160-77777770.json", function(json) {
+                oneRecord.ioTDevices = json.ioTDevices;
             });
+
+            oneRecord.waybill = {
+                "booking":{},
+                "waybillPrefix":LHJson.shipmentTrackingStatus.shipment.shipmentId.carrierNumericCode,
+                "waybillNumber":LHJson.shipmentTrackingStatus.shipment.shipmentId.aWBNumber
+            };
+            oneRecord.waybill.booking.transportMovement = {
+                "arrivalLocation": { "code":"HKG"},
+                "departureLocation": {"code":"LAX"}
+            };
+            //oneRecord.ioTDevices = [];
+            console.log(oneRecord);
+            return oneRecord;
+        }
+
+        function convertQA(json){
+            
+        }
+
+        function trackAndTraceMultiSearch2(awbs){
+            console.log(awbs);
+            var multiTnt = [];
+            awbs.forEach(function(awb){
+                var tnt;
+                var company;
+                var awbPrefix = awb.split('-')[0];
+                var awbSuffix = awb.split('-')[1];
+                switch(awbPrefix){
+                    case "160": company = "CX"; break;
+                    case "020": company = "LH"; break;
+                    case "157": company = "QT"; break;
+                }
+
+                if(company == "CX"){
+                    // $.ajax({
+                    //     method: "GET",
+                    //     url: "https://sc-test-api-ezyonerecord.ezbiz.com/sb-onerecordapi/companies/" + company + "/los/" + awbPrefix + "-" + awbSuffix + "/events",
+                    //     timeout: 3000,
+                    //     beforeSend: function (xhr) {
+                    //         xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlenljYXJnb2FwaSIsIm5iZiI6MTYzMTI1NDY3NiwiZXhwIjoxNjMzOTMzMTM2LCJpYXQiOjE2MzEyNTQ3MzYsImRhdGEiOiJkOGFEVHlWbFpJM1B6eWhnTHh6Q1BYeUlxcXpNV0dQaEFDU1dCS3ZBU2YrMzU5N1IwcXg5SWsyU2tjK3A5T0lReEQxekJoSno5aURVcEZneDZIQ3UrTHBsRVRQYVIyc3ZVK0hMV3AwRHNHaTMxU0M3eGhPYVA0NUpjVUVkWWZQa2l0enhTYlowdE1OTm8yMno4ZGtJWkF6SW9qM0U1clgxWFBTa3AxdEtyU3JVa2laTCtiYXdGTlFJeGNjRTRRT0tEWlcwajF0WGg2aUNuYk04MEhLeGV0WkhzbjhFSHBPRXlYeGVmdG5PU3hKbENTUzNVbVpSSXpxT01GZ1pVTUF5QjFNQkdHUi9SNko4b2w0THRvQWkzWGlFcEhsN3EzdTBxMkpBSTVWa3RuQlJNOHh3N3JocGtmQytsdnR3SEo0NlM4ZDdCcGpPTng5d3haREQ0UXMvVFRnckg2RHFLbm5jbURiK0Y0WTFGVVF5K2pPVkczRG91UTVIWitreHhFMTBHYndOOGhzUnBiYkFCMDd6Q0trU3NUeGphMW9YNUZFdklBWjhyem1FbUdhVjJmRC9pYVgrWEYyNEZrUlhZTHlEQTFJMzdxUGFmQzZJV1dFQjZIK1Q5VGJEY2ZENnc1L2swL2VMRHdLRmFCVGxZMUZiSkVidGdkbk5CU2YxYVBGM3FUdWxlVlkwQkQwQnZFNjRFTmNNYjZPOC9LTExjN0lMNS83aVNhUXRMbHR5bjVuZ1NNdkxaSnJyVkp1M3c2aXJ5U0tKQjRRZG02V1QzVlByMVZPOWE3SklkaWdYdEJYQStaeE50RnNDZXljPSJ9.bbjn1C-T-hjejCKmS4pGkH90AHWMxnAJIXj8d52OO_DoxQq1-kwLoN0UqQaOBGhL6RuFnBg20KF0M96yq6k8BwkZ5ZhdN3rSnBiXJN7afyeZQv0SWuG75h_HowXMPHg9hptX1kLGGjB6krnv3tQp5wOmKgrsghjUvJSeL6cHny2RBGKrXcqfLMIgnuQB8qqln73gHyUDf-iZOU6XD5aZ1g9sLOyyTSpKqqobgAFL8TscwExQhzOoiaFW3pf4hEQDjibErooRrwcbwAN1ZArIelim1TxR2-6vRHH9M76pz4oOfCsMcbFeHrZLOTMyvrPsaK4rE2fVn2JcO9fG2mWslQ');
+                    //     }
+                    // })
+                    // .done(function(data){
+                    //     tnt = convertCXToTnt(data);
+                    // })
+                    // .fail(function(err){
+                    //     $.getJSON("json/OneRecord_160-77777770.json", function(json) {
+                    //         tnt = convertCXToTnt(json);
+                    //     });
+                    // });
+                }
+                else if(company == "LH"){
+
+                }
+                else if(company == "QT"){
+
+                }
+            });
+            $.getJSON("json/multiTnt.json", function(json) {
+                receivedContent = json;
+            });
+
+            TogglePartialLoading(false);
+            tntDisplayMulti();
+        }
+
+        function convertCXToTnt(json){
+            var tnt = {
+                "IsFav": false,
+                "Origin": json.waybill.booking.transportMovement.departureLocation.code,
+                "Destination": json.waybill.booking.transportMovement.arrivalLocation.code,
+                "Bookings": [
+                    {
+                        "DepPort": "HKG",
+                        "ArrPort": "NRT",
+                        "DTTime": "15 Jan 2021, 00:55",
+                        "ATTime": "15 Jan 2021, 06:00",
+                        "Airline": "cx",
+                        "FlightNum": "CX006",
+                        "MDDate": "15 Jan 2021, 00:00",
+                        "QDPieces": 1,
+                        "QDWeight": "100kg",
+                        "Status": "SPACE CONFIRM AGAINST ALLOTMENT"
+                    }
+                ],
+                "TotalPcs": json.waybill.booking.shipmentDetails.totalPieceCount,
+                "TotalWeight": "100kg",
+                "CreateDT": {
+                    "Seconds": new Date(json.waybill.booking.shipmentDetails.event.dateTime)/1000,
+                    "Nanos": 0
+                },
+                "isFavourite": false,
+                "isError": false,
+                "ErrorCode": "",
+                "ErrorMessage": "",
+                "statusMapping": [],
+                "DetailsIoT": [],
+                "Devices": [],
+                "DeviceHistoryLogLocationMapping": [],
+                "CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
+                "AWBPrefix": json.waybill.waybillPrefix,
+                "AWBSuffix": json.waybill.waybillNumber,
+                "AWBDate": "15/01"
+            };
+        }
+
+        function convertLHToTnt(json){
+
+        }
+
+        function convertQTToTnt(json){
+
         }
 
         function tntTimeout() {
@@ -1039,21 +1197,110 @@ $(function() {
             var timeoutValue;
             recheckMode = false;
 
-            if (forceUpdate) {
-                timeoutValue = 120000;
-            } else {
-                timeoutValue = 30000;
-            }
+            // if (forceUpdate) {
+            //     timeoutValue = 120000;
+            // } else {
+            //     timeoutValue = 30000;
+            // }
 
-            timeoutHandle = setTimeout(function () {
-                tntTimeout();
-            }, timeoutValue);
+            // timeoutHandle = setTimeout(function () {
+            //     tntTimeout();
+            // }, timeoutValue);
 
             if (!multi) {
                 searchSingle = true;
                 var awbPrefix = $("#tnt_awbPrefix").val();
                 var awbSuffix = $("#tnt_awbSuffix").val();
-                tntHub.server.trackAndTraceSearch(awbPrefix, awbSuffix, forceUpdate);
+                // tntHub.server.trackAndTraceSearch(awbPrefix, awbSuffix, forceUpdate);
+                var company;
+                switch(awbPrefix){
+                    case "160": company = "CX"; break;
+                    case "020": company = "LH"; break;
+                }
+
+                if(company == "CX"){
+                    var url = "https://sc-test-api-ezyonerecord.ezbiz.com/sb-onerecordapi/companies/" + company + "/los/" + awbPrefix + "-" + awbSuffix + "/events"
+                    $.ajax({
+                        method: "GET",
+                        url: url,
+                        timeout: 3000,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlenljYXJnb2FwaSIsIm5iZiI6MTYzMTI1NDY3NiwiZXhwIjoxNjMzOTMzMTM2LCJpYXQiOjE2MzEyNTQ3MzYsImRhdGEiOiJkOGFEVHlWbFpJM1B6eWhnTHh6Q1BYeUlxcXpNV0dQaEFDU1dCS3ZBU2YrMzU5N1IwcXg5SWsyU2tjK3A5T0lReEQxekJoSno5aURVcEZneDZIQ3UrTHBsRVRQYVIyc3ZVK0hMV3AwRHNHaTMxU0M3eGhPYVA0NUpjVUVkWWZQa2l0enhTYlowdE1OTm8yMno4ZGtJWkF6SW9qM0U1clgxWFBTa3AxdEtyU3JVa2laTCtiYXdGTlFJeGNjRTRRT0tEWlcwajF0WGg2aUNuYk04MEhLeGV0WkhzbjhFSHBPRXlYeGVmdG5PU3hKbENTUzNVbVpSSXpxT01GZ1pVTUF5QjFNQkdHUi9SNko4b2w0THRvQWkzWGlFcEhsN3EzdTBxMkpBSTVWa3RuQlJNOHh3N3JocGtmQytsdnR3SEo0NlM4ZDdCcGpPTng5d3haREQ0UXMvVFRnckg2RHFLbm5jbURiK0Y0WTFGVVF5K2pPVkczRG91UTVIWitreHhFMTBHYndOOGhzUnBiYkFCMDd6Q0trU3NUeGphMW9YNUZFdklBWjhyem1FbUdhVjJmRC9pYVgrWEYyNEZrUlhZTHlEQTFJMzdxUGFmQzZJV1dFQjZIK1Q5VGJEY2ZENnc1L2swL2VMRHdLRmFCVGxZMUZiSkVidGdkbk5CU2YxYVBGM3FUdWxlVlkwQkQwQnZFNjRFTmNNYjZPOC9LTExjN0lMNS83aVNhUXRMbHR5bjVuZ1NNdkxaSnJyVkp1M3c2aXJ5U0tKQjRRZG02V1QzVlByMVZPOWE3SklkaWdYdEJYQStaeE50RnNDZXljPSJ9.bbjn1C-T-hjejCKmS4pGkH90AHWMxnAJIXj8d52OO_DoxQq1-kwLoN0UqQaOBGhL6RuFnBg20KF0M96yq6k8BwkZ5ZhdN3rSnBiXJN7afyeZQv0SWuG75h_HowXMPHg9hptX1kLGGjB6krnv3tQp5wOmKgrsghjUvJSeL6cHny2RBGKrXcqfLMIgnuQB8qqln73gHyUDf-iZOU6XD5aZ1g9sLOyyTSpKqqobgAFL8TscwExQhzOoiaFW3pf4hEQDjibErooRrwcbwAN1ZArIelim1TxR2-6vRHH9M76pz4oOfCsMcbFeHrZLOTMyvrPsaK4rE2fVn2JcO9fG2mWslQ');
+                        }
+                    })
+                    .success(function(data){
+                        objOneRecord = data;
+                    })
+                    .error(function(err){
+                        $.getJSON("json/OneRecord_160-77777770.json", function(json) {
+                            objOneRecord = json;
+                        });
+                    })
+                    .complete(function(data){
+                        $.getJSON("json/Notification.json", function(json) {
+                            objNotification = json;
+                        });
+                        tntToggleDisplay(displayStatus.single);
+                        tntDisplaySingleV2("");
+                    });
+                }
+                else if(company == "LH"){
+                    var token;
+                    $.ajax({
+                        method: "POST",
+                        url: "https://api.lufthansa.com/v1/oauth/token",
+                        data:{
+                            "client_id":"43v2ccz7a9f4jnnm3sj5y7xj",
+                            "client_secret":"vDcpfdWWrt54Kv75JGh7",
+                            "grant_type":"client_credentials"
+                        }
+                    })
+                    .success(function(data){
+                        token = data.access_token;
+                    });
+                    
+                    if(token != undefined){
+                        $.ajax({
+                            method: "GET",
+                            url: "https://api.lufthansa.com/v2/cargo/shipment/tracking?aWBPrefix=" + awbPrefix + "&aWBNumber=" + awbSuffix,
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('Authorization', 'Bearer '+ token);
+                            }
+                        })
+                        .success(function(data){
+                            objOneRecord = LHmapper(data);
+                            
+                        })
+                        .error(function(err){
+                            $.getJSON("json/LH_020-94616653.json", function(json) {
+                                objOneRecord = LHmapper(json);
+                            });
+                        })
+                        .complete(function(data){
+                            $.getJSON("json/DCSA.json", function(json) {
+                                var objDCSA = []
+                                objDCSA = DCSAmapper(json, objOneRecord.waybill.booking.shipmentDetails.totalPieceCount,objOneRecord.waybill.booking.shipmentDetails.totalGrossWeight.value);
+                                console.log(objDCSA);
+                                
+                                objDCSA.forEach((dcsaEvent, index) => {
+                                
+                                    var thepatch = [
+                                    { "op": "add", "path": "/waybill/booking/shipmentDetails/containedPiece/0", "value": dcsaEvent }
+                                    ]
+                                    objOneRecord = jsonpatch.apply_patch(objOneRecord, thepatch)
+                                })
+                                
+                                console.log(objOneRecord);
+                            });
+
+                            $.getJSON("json/Notification.json", function(json) {
+                                objNotification = json;
+                            });
+                            tntToggleDisplay(displayStatus.single);
+                            tntDisplaySingleV2("");
+                        });
+                    }
+                }
             }
             else {
                 searchSingle = false;
@@ -1077,7 +1324,8 @@ $(function() {
                 }
 
                 if (count >= 1) {
-                    tntHub.server.trackAndTraceMultiSearch(awb);
+                    // tntHub.server.trackAndTraceMultiSearch(awb);
+                    //trackAndTraceMultiSearch2(awbs);
 
                     // 20180731 - Build multi response table
                     var buildingHtml = $("#tnt_multi_header_template").html();
@@ -1144,8 +1392,10 @@ $(function() {
                         MODIFICATION END : Modified at 20200501
                     */
 
-                    TogglePartialLoading(true);
+                    //TogglePartialLoading(true);
                     $("#tnt_multi_cnt_all").click()
+
+                    trackAndTraceMultiSearch2(awbs);
                 }
             }
         }
@@ -1426,7 +1676,7 @@ $(function() {
 		
             initalize_ui()
             //Freight Status object
-			// $.getJSON("json/OneRecord_160-62214250v2.json", function(json) {
+			// $.getJSON("json/OneRecord_160-77777770.json", function(json) {
 			// 	objOneRecord = json;
 			// });
 
@@ -1436,11 +1686,16 @@ $(function() {
 			
             //objOneRecord = objResult
             
-            var UTDeviceList = objOneRecord.ioTDevices.filter(function (devices) { return devices.deviceDescription == "UltraTrackDevice"; }).sort(function (a, b) {
-				return (a.deviceName > b.deviceName ? 1 : -1)
-			});
+            var UTDeviceList = [];
             var flights = [];
             var devices = [];
+			console.log("objOneRecord",objOneRecord);
+			if (objOneRecord.ioTDevices != undefined && objOneRecord.ioTDevices != null){
+			
+				UTDeviceList = objOneRecord.ioTDevices.filter(function (devices) { return devices.deviceDescription == "UltraTrackDevice"; }).sort(function (a, b) {
+					return (a.deviceName > b.deviceName ? 1 : -1)
+				});
+			}
 
             // UTDeviceList[0].sensors.find(({ sensorType }) => sensorType === 'GeoLocation').sensorGeoloc.val.forEach(function(geoloc){
             //     flight = {};
@@ -1571,7 +1826,7 @@ $(function() {
 				//initialize_device_sensor_reading2()
 			}
 			/*
-			$.getJSON("json/FreightStatus_160-62214250v2.json", function(response) {
+			$.getJSON("json/FreightStatus_160-77777770.json", function(response) {
 				if (typeof response.data != 'object' || response.data == null || response.data.devices == null || response.data.devices.length == 0 || response.data.devices[0].reading.length == 0) {
 
                     //For demo purpose, for AWB No : 160-00000000, show demo sensor reading
@@ -1849,7 +2104,7 @@ $(function() {
             */
 
 
-            $.connection.hub.stop();
+            //$.connection.hub.stop();
         }
 
         function tntDisplayMultiPartial(tntLine) {
@@ -2340,7 +2595,7 @@ $(function() {
             </div>
             <div>
                 <div class="divider_v"></div>
-                <div class="blk_m_dis" type="button" id="dropdownMenu7" data-toggle="dropdown"><center><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" class="link_bu_r" data-i18n="tnt.SearchMultiAWB">Multiple Air Waybills</a></center></div>
+                <div class="blk_m_dis" type="button" id="dropdownMenu7" data-toggle="dropdown"><center><a href="/trackshipment#" class="link_bu_r" data-i18n="tnt.SearchMultiAWB">Multiple Air Waybills</a></center></div>
                 <div class="checkbill multi" aria-labelledby="dropdownMenu7">
                     <form class="">
                         <label data-i18n="tnt.SearchMultiAWB">Multiple Air Waybills</label>
@@ -2350,7 +2605,7 @@ $(function() {
                             <div id="tnt_searchMulti" style="cursor: hand; cursor: pointer" class="btn_search"></div>
                         </div>
                     </form><div class="divider_v"></div>
-                    <div class="blk_m_dis"><center><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" class="link_bu_r" data-i18n="tnt.SearchAWB">Search Air Waybill</a></center></div>
+                    <div class="blk_m_dis"><center><a href="/trackshipment#" class="link_bu_r" data-i18n="tnt.SearchAWB">Search Air Waybill</a></center></div>
                 </div>
             </div>
             <div class="blkc"></div>
@@ -2367,7 +2622,7 @@ $(function() {
     <div id="error_message" class="wbg container disabled"></div>
     <div id="tnt_response_multi" class="wbg disabled">
         <div class="container wbg">
-            <h3 data-i18n="tnt.TrackShipmentResult">Track_Shipment Result</h3>
+            <h3 data-i18n="tnt.TrackShipmentResult">Track Shipment Result</h3>
             <div class="blkr disabled">
                 <select class="select_or"><option data-i18n="tnt.AllAirlines">All Airlines</option><option>CX </option><option>LC</option><option>UX</option></select>
                 <div id="dd" class="select_or" tabindex="1" data-i18n="tnt.AllAirlines">All AirlinesCXLCUX</div>
@@ -2375,14 +2630,14 @@ $(function() {
             <div class="blkc"></div>
             <div class="cd-tabs is-ended">
                 <nav>
-                    <a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" id="tnt_multi_update_time" class="update_remark" onclick="tntTriggerSearch(true, false)">10 Nov 08:35</a>
+                    <a href="/trackshipment.html#" id="tnt_multi_update_time" class="update_remark" onclick="tntTriggerSearch(true, false)">10 Nov 08:35</a>
                     <ul class="cd-tabs-navigation">
-                        <li><a data-content="all" class="selected tnt_multi_content_selector" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0">All (<span id="tnt_multi_cnt_all">0</span>)</a></li>
-                        <li><a data-content="departed" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_DEP"><span data-i18n="tnt.DEP">Departed</span> (<span id="tnt_multi_cnt_DEP">0</span>)</a></li>
-                        <li><a data-content="arrived" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_ARR"><span data-i18n="tnt.ARR">Arrived</span> (<span id="tnt_multi_cnt_ARR">0</span>)</a></li>
-                        <li><a data-content="received" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_RCS"><span data-i18n="tnt.RCS">Airline Received</span> (<span id="tnt_multi_cnt_RCS">0</span>)</a></li>
-                        <li><a data-content="delivered" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_DLV"><span data-i18n="tnt.DLV">Delivered</span> (<span id="tnt_multi_cnt_DLV">0</span>)</a></li>
-                        <li><a data-content="other" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_OTHER"><span data-i18n="tnt.Other">Others</span> (<span id="tnt_multi_cnt_OTHER">0</span>)</a></li>
+                        <li><a data-content="all" class="selected tnt_multi_content_selector" href="/trackshipment#0">All (<span id="tnt_multi_cnt_all">0</span>)</a></li>
+                        <li><a data-content="departed" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_DEP"><span data-i18n="tnt.DEP">Departed</span> (<span id="tnt_multi_cnt_DEP">0</span>)</a></li>
+                        <li><a data-content="arrived" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_ARR"><span data-i18n="tnt.ARR">Arrived</span> (<span id="tnt_multi_cnt_ARR">0</span>)</a></li>
+                        <li><a data-content="received" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_RCS"><span data-i18n="tnt.RCS">Airline Received</span> (<span id="tnt_multi_cnt_RCS">0</span>)</a></li>
+                        <li><a data-content="delivered" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_DLV"><span data-i18n="tnt.DLV">Delivered</span> (<span id="tnt_multi_cnt_DLV">0</span>)</a></li>
+                        <li><a data-content="other" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_OTHER"><span data-i18n="tnt.Other">Others</span> (<span id="tnt_multi_cnt_OTHER">0</span>)</a></li>
                     </ul> <!-- cd-tabs-navigation -->
                 </nav>
 
@@ -2483,9 +2738,9 @@ $(function() {
         <div class="blkc"></div>
         <div class="b_action_tool">
             <div class="divider_gy"></div>
-            <a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" class="btn_img_share disabled"></a>
-            <a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" class="btn_img_email disabled"></a>
-            <a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" id="tnt_fav_switch" class="btn_img_saved off" onclick="tntMarkFav('160','10035395', 'NRT', '15/01')"></a>
+            <a href="/trackshipment#" class="btn_img_share disabled"></a>
+            <a href="/trackshipment#" class="btn_img_email disabled"></a>
+            <a href="/trackshipment#" id="tnt_fav_switch" class="btn_img_saved off" onclick="tntMarkFav('160','10035395', 'NRT', '15/01')"></a>
         </div>
         <div class="msg_remarks" style="padding-top: 12px;"><span>Image Time:</span>&nbsp;04 Sept 2021, 15:56</div>
     </div>
@@ -2538,7 +2793,7 @@ $(function() {
                                 <div class="shipment-status_tab">
                                     <button type="button" class="tablinks active" onclick="switchTab(this, 'LatestStatus')">Latest Status</button>
                                     <button type="button" class="tablinks" onclick="switchTab(this, 'ShipmentHistory')">Shipment History</button>
-                                    <button type="button" class="tabklinks" style="background-color:#fff !important; padding: 0px; margin-left:280px;" onclick="switchTab(this, 'Notification')"><img src="./img/notification.png" style="width:48px; height:48px;"></button>
+                                    <button type="button" class="tabklinks" style="background-color:#fff !important; padding: 0px; margin-left:260px;" onclick="switchTab(this, 'Notification')"><img src="./img/notification.png" style="width:48px; height:48px;"></button>
                                 </div>
                                 <div id="LatestStatus" class="shipment-status_tabcontent" style="display : block">
                                     <div id="Latest_Status_Table">
@@ -2842,7 +3097,7 @@ $(function() {
                                                 <img id="map_expand" src="./img/expand.png" style="cursor : pointer; pointer-events: auto;" onclick="showFullMap()">
                                                 <!-- <img id="map_replay" src="./img/outline_replay_black_18dp.png" style="cursor : pointer; pointer-events: auto;" onclick="initialize_device_sensor_reading()"> -->
                                             </div>
-                                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(2px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img crossorigin="" alt="" role="presentation" src="./img/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-490px, -282px, 0px); opacity: 1;"><img crossorigin="" alt="" role="presentation" src="./img/1(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(22px, -282px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="384" height="240" viewBox="-34 -20 384 240" style="transform: translate3d(-34px, -20px, 0px);"><g><path class="leaflet-interactive" stroke="#FF5C59" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M160 100L160 100"></path><path class="leaflet-interactive" stroke="#FF5C59" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M158 100L158 100"></path></g></svg></div><div class="leaflet-pane leaflet-marker-pane"><img src="./img/location-red.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="transform: translate3d(160px, 100px, 0px); z-index: 100;"><img src="./img/icon-plane-red.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -15px; margin-top: -15px; width: 30px; height: 30px; transform: translate3d(158px, 100px, 0px); z-index: 100;"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1672px, 894px, 0px) scale(4);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></div></div></div></div>
+                                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(2px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img crossorigin="" alt="" role="presentation" src="./img/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-490px, -282px, 0px); opacity: 1;"><img crossorigin="" alt="" role="presentation" src="./img/1(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(22px, -282px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="384" height="240" viewBox="-34 -20 384 240" style="transform: translate3d(-34px, -20px, 0px);"><g><path class="leaflet-interactive" stroke="#FF5C59" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M160 100L160 100"></path><path class="leaflet-interactive" stroke="#FF5C59" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M158 100L158 100"></path></g></svg></div><div class="leaflet-pane leaflet-marker-pane"><img src="./img/location-red.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="transform: translate3d(160px, 100px, 0px); z-index: 100;"><img src="./img/icon-plane-red.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -15px; margin-top: -15px; width: 30px; height: 30px; transform: translate3d(158px, 100px, 0px); z-index: 100;"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1672px, 894px, 0px) scale(4);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="/trackshipment#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="/trackshipment#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></div></div></div></div>
                                     </div>
                                     <div style="display:table">
                                         <div style="display:table-row;">
@@ -2902,7 +3157,7 @@ $(function() {
                                 <div class="shipment-status_tab">
                                     <button type="button" class="tablinks active" onclick="switchTab(this, 'LatestStatus')">{{LocalizedString-LatestStatus}}</button>
                                     <button type="button" class="tablinks" onclick="switchTab(this, 'ShipmentHistory')">{{LocalizedString-ShipmentHistory}}</button>
-                                    <button type="button" class="tabklinks" style="background-color:#fff !important; padding: 0px; margin-left:280px;" onclick="switchTab(this, 'Notification')"><img src="./img/notification.png" style="width:48px; height:48px;"></button>
+                                    <button type="button" class="tabklinks" style="background-color:#fff !important; padding: 0px; margin-left:260px;" onclick="switchTab(this, 'Notification')"><img src="./img/notification.png" style="width:48px; height:48px;"></button>
                                 </div>
                                 <div id="LatestStatus" class="shipment-status_tabcontent" style="display : block">
                                     <div id="Latest_Status_Table">
@@ -3221,7 +3476,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cola" style="width: 225px">
-            <a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#" class="btn_not_confirm" style="min-width: 30px;"><span class="tick"></span>Space Confirm Against Allotment</a>
+            <a href="/trackshipment#" class="btn_not_confirm" style="min-width: 30px;"><span class="tick"></span>Space Confirm Against Allotment</a>
         </div>
     </div>
 </div>
@@ -3264,7 +3519,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3289,7 +3544,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3314,7 +3569,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3339,7 +3594,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3364,7 +3619,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3389,7 +3644,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 
@@ -3414,7 +3669,7 @@ $(function() {
             <div class="flight_weight">100kg</div>
         </div>
         <div class="tcell cols colsp">
-            <div class="flight_remark"><a href="https://uat-ezycargo2017.ezbiz.com/en-US/1/Track-Shipment#"></a></div>
+            <div class="flight_remark"><a href="/trackshipment#"></a></div>
         </div>
     </div>
 </div>
@@ -3445,7 +3700,7 @@ $(function() {
         </div>
         <div class="cnt">
             <div class="b_flight_location">
-                $ORIG$<img src="/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png" />$DEST$
+                $ORIG$<img src="/img/icon_gy_flight.png" />$DEST$
             </div>
             <div class="b_flight_piece">
                 $TOTAL_PCS$pcs
@@ -3509,7 +3764,7 @@ $(function() {
 <script id="tnt_booking_template" type="text/x-template">
     <div class="trow">
         <div class="tcell col1 colp">
-            <div class="flight_location">$SEQ$. $ORIG$ <img src="/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png">$DEST$</div>
+            <div class="flight_location">$SEQ$. $ORIG$ <img src="/img/icon_gy_flight.png">$DEST$</div>
         </div>
         <div class="tcell cols">
             <div class="flight_num"><img src="/images/common/airline/$AIRLINE$.png" class="disabled"><span style="font-weight: bold">$FLIGHT_NUM$</span></div>
@@ -3625,13 +3880,13 @@ $(function() {
                     <a href="#" class="awb_link" onclick="tntOpenSingle('$AWB_PREFIX$-$AWB_SUFFIX$')">$AWB_PREFIX$-$AWB_SUFFIX$</a>
                     <span id="tnt_$AWB_PREFIX$_$AWB_SUFFIX$" class="bill_marked $IS_FAV$" onclick="tntUnmarkFav('$AWB_PREFIX$','$AWB_SUFFIX$', '$DEST$', '$AWBDATE$')"></span>
                 </div>
-                <div class="flight_location">$ORIG$<img src="/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png">$DEST$</div>
+                <div class="flight_location">$ORIG$<img src="/img/icon_gy_flight.png">$DEST$</div>
             </div>
             <div class="tcell cols">
                 <div class="flight_status $MILESTONE_STATUS$" title="$IMAGE_TIME$"><span>$STATUS$</span><span>$LAST_PORT$</span></div>
             </div>
             <div class="tcell cols">
-                <div class="flight_num $FLIGHT_DISABLED$"><img src="/images/common/airline/$AIRLINE$.png" class="disabled"><span style="font-weight: bold">$FLIGHT_NUM$</span></div>
+                <div class="flight_num $FLIGHT_DISABLED$"><img src="/img/$AIRLINE$.png" class="disabled"><span style="font-weight: bold">$FLIGHT_NUM$</span></div>
             </div>
             <div class="tcell cols">
                 <div class="flight_date">$FLIGHT_TIME$</div>
@@ -3658,7 +3913,7 @@ $(function() {
                     <a href="#" class="awb_link" onclick="tntOpenSingle('$AWB_PREFIX$-$AWB_SUFFIX$')">$AWB_PREFIX$-$AWB_SUFFIX$</a>
                 </div>
                 <div class="flight_location $CHECKAGAIN_DISABLED$">
-                    $ORIG$<img src="/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png">$DEST$
+                    $ORIG$<img src="/img/icon_gy_flight.png">$DEST$
                 </div>
             </div>
             <div class="tcell cols">
@@ -3696,7 +3951,7 @@ $(function() {
                     <a href="#" class="awb_link" onclick="tntOpenSingle('$AWB_PREFIX$-$AWB_SUFFIX$')">$AWB_PREFIX$-$AWB_SUFFIX$</a>
                 </div>
                 <div class="flight_location $CHECKAGAIN_DISABLED$">
-                    $ORIG$<img src="/Portals/_default/Skins/EzyCargo/img/icon_gy_flight.png">$DEST$
+                    $ORIG$<img src="/img/icon_gy_flight.png">$DEST$
                 </div>
             </div>
             <div class="tcell cols">

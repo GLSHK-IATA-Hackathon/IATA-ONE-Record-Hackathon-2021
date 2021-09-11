@@ -39,14 +39,22 @@ function getLatestShipmentStatusDetails() {
 	var LatestShipmentStatusDetails = [];
 				
 	for (var i=0; i<objOneRecord.waybill.booking.shipmentDetails.containedPiece.length; i++) {
-		if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'FOH' && objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code == objOneRecord.waybill.booking.transportMovement.departureLocation.code) {
+		
+		var MdPort = "HKG";
+		if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation != null){
+			MdPort = objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code
+		}else if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalLocation != null){
+			MdPort = objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalLocation.code
+		}
+		
+		if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'FOH' && MdPort == objOneRecord.waybill.booking.transportMovement.departureLocation.code) {
 			
 			intTotalFOHPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
 			dblTotalFOHWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
 			
 		}
 		
-		if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'MAN' && objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code == objOneRecord.waybill.booking.transportMovement.departureLocation.code) {
+		if (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'MAN' && MdPort == objOneRecord.waybill.booking.transportMovement.departureLocation.code) {
 			
 			intTotalMANPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
 			dblTotalMANWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
@@ -62,9 +70,9 @@ function getLatestShipmentStatusDetails() {
 			|| objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'DLV'
 		) {
 		
-			if (AirportSummary[objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code] === undefined) {
+			if (AirportSummary[MdPort] === undefined) {
 				
-				AirportSummary[objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code] = {
+				AirportSummary[MdPort] = {
 					
 					"FOH": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
 					"RCS": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
@@ -79,9 +87,9 @@ function getLatestShipmentStatusDetails() {
 			}
 			
 			
-			AirportSummary[objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
+			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
 			
-			AirportSummary[objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
+			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
 			
 			Flight = {
 				row : i, 
@@ -94,12 +102,12 @@ function getLatestShipmentStatusDetails() {
 								),
 				EventTime : (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'DEP' ? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].event.dateTime : objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate),
 				Airline : String(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier).substring(0,2),
-				Airport : objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code,
+				Airport : MdPort,
 				Pieces : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value),
 				Weight : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
 			}
 			
-			AirportSummary[objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].departureLocation.code][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].Flights.push(Flight)
+			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].Flights.push(Flight)
 		
 			
 			
@@ -222,8 +230,14 @@ function genBookingList(objBookingItems) {
 	
 	strBooking_Template = populateLocalizedStrings(strBooking_Template, strCurrentLanguage)
 	
+	
+	
 	for (var key in objBookingItems) {
 	
+		var statusVar = "SPACE CONFIRMED"
+		if (objBookingItems[key].serviceRequest !=null && objBookingItems[key].serviceRequest[0] != null && objBookingItems[key].serviceRequest[0].code == 'OSI'){
+			statusVar = objBookingItems[key].serviceRequest[0].description
+		}
 		strBooking_Content += strBooking_Template
 		
 							   .replace("{{Booking-MDPort1}}", objBookingItems[key].transportSegment[0].departureLocation.code)
@@ -233,11 +247,12 @@ function genBookingList(objBookingItems) {
 							   .replace("{{Booking-FlightNumber}}", objBookingItems[key].transportSegment[0].transportIdentifier)
 							   .replace("{{Booking-FlightDate}}", (objBookingItems[key].transportSegment[0].arrivalDate != null ? objBookingItems[key].transportSegment[0].arrivalDate : ''))
 							   
-							   .replace("{{Booking-DTTime}}", (objBookingItems[key].transportSegment[0].event.dateTime != null ? objBookingItems[key].transportSegment[0].event.dateTime : ''))
-							   .replace("{{Booking-ATTime}}", (objBookingItems[key].transportSegment[0].event.dateTime != null ? objBookingItems[key].transportSegment[0].event.dateTime : ''))
+							   .replace("{{Booking-DTTime}}", (objBookingItems[key].transportSegment[0].event[0].dateTime != null ? objBookingItems[key].transportSegment[0].event[0].dateTime : ''))
+							   .replace("{{Booking-ATTime}}", (objBookingItems[key].transportSegment[0].event[1].dateTime != null ? objBookingItems[key].transportSegment[0].event[1].dateTime : ''))
 							   
 							   .replace("{{Booking-QDPieces}}", parseFloat(objBookingItems[key].containedItem[0].quantity.value))
 							   .replace("{{Booking-QDWeight}}", parseFloat(objBookingItems[key].grossWeight.value))
+							   .replace("{{Booking-Status}}", statusVar)
 							   
 							   /*
 							   .replace("{{Booking-Status}}", (getBookingOSILine(objBookingItems[key].DetailSeq - 1) != '' ? getBookingOSILine(objBookingItems[key].DetailSeq - 1).replace(/[A-Z]{3} TO [A-Z]{3} /g, '').replace(/\w+/g, function(w){return w[0].toUpperCase() + w.slice(1).toLowerCase();}) : ''))*/  //TODO202109
@@ -320,16 +335,37 @@ function genShipmentHistoryList(objShipmentHistoryItems) {
 	
 	strShipment_History_Template = populateLocalizedStrings(strShipment_History_Template, strCurrentLanguage)
 	
+	var fn = ''
+	var lastFn = ''
+	
 	for (var key in objShipmentHistoryItems) {
 	
-				
-		strShipment_History_Content += strShipment_History_Template
+		var MdPort = "HKG"
+		if (objShipmentHistoryItems[key].transportSegment[0].departureLocation!=null){
+			MdPort = objShipmentHistoryItems[key].transportSegment[0].departureLocation.code;
+		}else if (objShipmentHistoryItems[key].transportSegment[0].arrivalLocation!=null){
+			MdPort = objShipmentHistoryItems[key].transportSegment[0].arrivalLocation.code;
+		}
 		
+		if (objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != null && objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != ''){
+			fn = objShipmentHistoryItems[key].transportSegment[0].transportIdentifier;
+			lastFn = fn;
+		}else{
+			
+		}
+		
+		var Actual = 'Y'
+		if (objShipmentHistoryItems[key].event[0] !=null && objShipmentHistoryItems[key].event[0].eventTypeIndicator == 'P'){
+			Actual = 'N'
+		}
+
+		strShipment_History_Content += strShipment_History_Template
+									   .replace("class=\"shipment-status_status\"", Actual == 'N' ? "class=\"shipment-status_status\" style=\"color:red;\"": "class=\"shipment-status_status\"")
 									   .replace("{{ShipmentHistory-StatusCode-Image}}", image_path + objShipmentHistoryItems[key].event[0].eventCode + '.png')
 									   .replace("{{ShipmentHistory-StatusCode)}}", getStatusDescByCode(objShipmentHistoryItems[key].event[0].eventCode))
-									   .replace("{{ShipmentHistory-MDPort1}}", objShipmentHistoryItems[key].transportSegment[0].departureLocation.code)
+									   .replace("{{ShipmentHistory-MDPort1}}", MdPort)
 									   .replace("{{ShipmentHistory-EventTime}}", ((objShipmentHistoryItems[key].event[0].eventCode == 'DEP' && objShipmentHistoryItems[key].transportSegment[0].event.dateTime != null) || (objShipmentHistoryItems[key].event[0].eventCode != 'DEP' && objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null) ? (objShipmentHistoryItems[key].event[0].eventCode == 'DEP' ? objShipmentHistoryItems[key].transportSegment[0].event.dateTime: objShipmentHistoryItems[key].transportSegment[0].arrivalDate) : ''))  //TODO202109 FORMAT date
-									   .replace("{{ShipmentHistory-FlightInfo}}", (objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != '' ? LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + objShipmentHistoryItems[key].transportSegment[0].transportIdentifier + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '') : ''))
+									   .replace("{{ShipmentHistory-FlightInfo}}", ((objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != null && objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != '') ? LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + objShipmentHistoryItems[key].transportSegment[0].transportIdentifier + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '') : LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + lastFn + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '')))
 									   .replace("{{ShipmentHistory-QDPieces}}", parseFloat(objShipmentHistoryItems[key].containedItem[0].quantity.value))
 									   .replace("{{ShipmentHistory-QDWeight}}", parseFloat(objShipmentHistoryItems[key].grossWeight.value))
 									   .replace("{{ShipmentHistory-Remarks}}", (getULDInfo2(objShipmentHistoryItems[key].DetailSeq - 1) != '' ? LocalizedStrings['Remarks'][strCurrentLanguage] + ': ' + getULDInfo2(objShipmentHistoryItems[key].DetailSeq - 1) : '')) //TODO202109
@@ -393,18 +429,19 @@ function toggleSortShipmentHistory() {
 	
 	//Toggle Sort Direction
 	strCurrentShipmentHistorySortDirection = (strCurrentShipmentHistorySortDirection == 'asc' ? 'desc' : 'asc')
-	
 	$("#Shipment_History_Sort_Direction_Image").attr('src', image_path + 'sort-' + strCurrentShipmentHistorySortDirection + '.png') 
 	
 	if (strCurrentShipmentHistorySortDirection == 'asc') {
 			objShipmentHistoryItems.sort(function (a, b) {
-						return a.DetailSeq - b.DetailSeq
+						//return a.DetailSeq - b.DetailSeq
+						return (a.transportSegment[0].arrivalDate > b.transportSegment[0].arrivalDate ? 1 : -1)
 					});		
 	}
 	else {
 		
 		objShipmentHistoryItems.sort(function (a, b) {
-						return b.DetailSeq - a.DetailSeq
+						//return b.DetailSeq - a.DetailSeq
+						return (a.transportSegment[0].arrivalDate > b.transportSegment[0].arrivalDate ? -1 : 1)
 					});			
 		
 	}

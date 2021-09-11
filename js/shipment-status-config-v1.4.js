@@ -21,7 +21,9 @@ var StatusMapping = {
 	DIS : 'Discrepancy',
 	OCI : 'Other Information',
 	CCD : 'Custom cleared',
-	TRM : 'Freight to be transferred to airline'
+	TRM : 'Freight to be transferred to airline',
+	ARRI : 'Arrived (Truck)',
+	DEPA : 'Departed (Truck)'
 	
 }
 
