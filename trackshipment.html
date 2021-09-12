@@ -601,8 +601,8 @@ i18next.use(window.i18nextXHRBackend).init({
 	fallbackLng: 'en-US',
 	lng: _currentCulture,
 	backend: {
-	  loadPath: '/locales/{{ns}}_{{lng}}.json',
-	  addPath: '/locales/add/{{ns}}_{{lng}}.json', // unused
+	  loadPath: './locales/{{ns}}_{{lng}}.json',
+	  addPath: './locales/add/{{ns}}_{{lng}}.json', // unused
 	  allowMultiLoading: false
     }
 }, function(err, t) {
@@ -2658,7 +2658,7 @@ $(function() {
             <div class="blkc"></div>
             <div class="cd-tabs is-ended">
                 <nav>
-                    <a href="/trackshipment.html#" id="tnt_multi_update_time" class="update_remark" onclick="tntTriggerSearch(true, false)">10 Nov 08:35</a>
+                    <a href="./trackshipment.html#" id="tnt_multi_update_time" class="update_remark" onclick="tntTriggerSearch(true, false)">10 Nov 08:35</a>
                     <ul class="cd-tabs-navigation">
                         <li><a data-content="all" class="selected tnt_multi_content_selector" href="/trackshipment#0">All (<span id="tnt_multi_cnt_all">0</span>)</a></li>
                         <li><a data-content="departed" href="/trackshipment#0" class="tnt_multi_content_selector" id="tnt_multi_selector_DEP"><span data-i18n="tnt.DEP">Departed</span> (<span id="tnt_multi_cnt_DEP">0</span>)</a></li>
@@ -2792,9 +2792,9 @@ $(function() {
 
             <div id="tnt_result" style="width:960px;position: relative;">
                 <div style="position:absolute;top:80px;right:0px;height:5px;">
-                    <div id="tnt_back_to_multi_block" class="tnt_back_to_block disabled disable"><a href="/trackshipment.html#" onclick="tntToggleDisplay(displayStatus.multi);" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchResult">Back to search results</a></div>
-                    <div id="tnt_back_to_search" class="tnt_back_to_block disable"><a href="/trackshipment.html#" onclick="tntToggleDisplay(displayStatus.search);" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchPage">Back to search</a></div>
-                    <div id="tnt_back_to_dashboard" class="tnt_back_to_block disabled disable"><a href="/trackshipment.html#" onclick="window.history.back();" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchResult">Back to search results</a></div>
+                    <div id="tnt_back_to_multi_block" class="tnt_back_to_block disabled disable"><a href="./trackshipment.html#" onclick="tntToggleDisplay(displayStatus.multi);" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchResult">Back to search results</a></div>
+                    <div id="tnt_back_to_search" class="tnt_back_to_block disable"><a href="./trackshipment.html#" onclick="tntToggleDisplay(displayStatus.search);" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchPage">Back to search</a></div>
+                    <div id="tnt_back_to_dashboard" class="tnt_back_to_block disabled disable"><a href="./trackshipment.html#" onclick="window.history.back();" class="tnt_back_to_multi" data-i18n="tnt.BackToSearchResult">Back to search results</a></div>
                 </div>
                 <div id="TNT_Result-Content">
                 <div style="width:100%;height:165px;display:table;">
@@ -3434,7 +3434,7 @@ $(function() {
                     </div>
 					<div class="geofencing" style="display:{{Display-DCSA}};">
                         <div style="position:absolute;top:-60px;right:0px;">
-                            <img src="./img/check_1R.png" onclick="showDCSAJson({{DCSA-Details}})"style="cursor: pointer;width: 32px; height: 32px; float: right;">
+                            <img src="./img/check_1r.png" onclick="showDCSAJson({{DCSA-Details}})"style="cursor: pointer;width: 32px; height: 32px; float: right;">
                         </div>
                     </div>
                 </div>
