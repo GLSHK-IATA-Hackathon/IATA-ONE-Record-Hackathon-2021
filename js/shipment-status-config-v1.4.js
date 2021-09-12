@@ -252,11 +252,11 @@ var LocalizedStrings = {
 								"es" : "Acción"
 							},						
 	"ProductName" : 		{
-								"en" : "Ultra Track",
+								"en" : "Smart Track",
 								"tc" : "智貨查",
 								"sc" : "智货查",
-								"de" : "Ultra Track",
-								"es" : "Ultra Track"
+								"de" : "Smart Track",
+								"es" : "Smart Track"
 							},
 	"Latitude" : 			{
 								"en" : "Latitude",

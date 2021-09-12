@@ -9831,7 +9831,7 @@ $(function() {
 
 </script><div id="bkd_def_ngtt" class="bkd_block" style="">
     <div class="col-xs-12">
-        <h3 class="expandable_title" data-i18n="ngtt.NGTTInfo" data-toggle="collapse" href="#ngtt_info" tabindex="0" aria-expanded="true">Ultra Track Information</h3>
+        <h3 class="expandable_title" data-i18n="ngtt.NGTTInfo" data-toggle="collapse" href="#ngtt_info" tabindex="0" aria-expanded="true">Smart Track Information</h3>
         <span class="collapse_icon">
             <i class="fa fa-arrow-circle-down fa-lg" aria-hidden="true" data-toggle="collapse" href="#ngtt_info" aria-expanded="true"></i>
         </span>
@@ -9840,7 +9840,7 @@ $(function() {
 
     <div id="ngtt_info" class="collapse_wrapper collapse in" aria-expanded="true" style="">
         <div class="col-xs-12 col-md-12" style=" margin-bottom: 10px;">
-            <span class="warning" data-i18n="ngtt.ChargingNote">Please note Ultra Track is a charging service</span>
+            <span class="warning" data-i18n="ngtt.ChargingNote">Please note Smart Track is a charging service</span>
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="blk_gy_line blkl">
@@ -9948,7 +9948,7 @@ $(function() {
             </div>
 
             <div class="blk_gy_line blkl">
-                <h4 class="blk_in" data-i18n="ngtt.Email">Ultra Track Notification (E-mail Contact)</h4>
+                <h4 class="blk_in" data-i18n="ngtt.Email">Smart Track Notification (E-mail Contact)</h4>
                 <div class="blkc"></div>
                 <div class="blk_contour bu_txt">
 
@@ -9972,7 +9972,7 @@ $(function() {
             </div>
 
             <div class="blk_gy_line blkl">
-                <h4 class="blk_in" data-i18n="ngtt.Tel">Ultra Track Notification (Tel. Contact)</h4>
+                <h4 class="blk_in" data-i18n="ngtt.Tel">Smart Track Notification (Tel. Contact)</h4>
                 <div class="blkc"></div>
                 <div class="blk_contour bu_txt">
 
@@ -10561,7 +10561,7 @@ $(function() {
                         var rowid = $(this).attr("data-rowid");
                         routetoid = rowid;
 
-                        //$("#routing_route_to_" + rowid + " ~ .error_or_msg").text('The Destination is not available for ultra track subscription');
+                        //$("#routing_route_to_" + rowid + " ~ .error_or_msg").text('The Destination is not available for Smart Track subscription');
                         $("#routing_route_to_" + rowid + " ~ .error_or_msg").text(i18next.t("ngtt.InvalidDestination"));
                         $("#routing_route_to_" + rowid + " ~ .error_or_msg").hide();
                         $("#routing_route_to_" + rowid).parent().removeClass("error_or");
@@ -12146,7 +12146,7 @@ $(function() {
                                             if (typeof bkd.Cx !== 'undefined' && bkd.Cx != null) {
                                                 if (typeof bkd.Cx.NgttInfo !== 'undefined' && bkd.Cx.NgttInfo != null) {
                                                     if (bkd.Cx.NgttInfo.ProductCode != '') {
-                                                        message += '<br> Ultra track is subscribed, should you have any problem, please contact to CX local sales team';
+                                                        message += '<br> Smart Track is subscribed, should you have any problem, please contact to CX local sales team';
                                                     }
                                                 }
                                             }
@@ -12379,7 +12379,7 @@ $(function() {
                             {
                                 if (bkd.Cx.NgttInfo.ProductCode != '')
                                 {
-                                    message += '<br> Ultra track is subscribed, should you have any problem, please contact to CX local sales team';
+                                    message += '<br> Smart Track is subscribed, should you have any problem, please contact to CX local sales team';
                                 }
                             }
                         }
