@@ -517,7 +517,7 @@ select::-ms-expand {
 
 
 
-.blk_sty02 .blk_error .icon_success{display:inline-block;width:60px;height:60px;margin-right:15px;background:url(/img/icon_round_gr_tick.png) center center no-repeat;}
+.blk_sty02 .blk_error .icon_success{display:inline-block;width:60px;height:60px;margin-right:15px;background:url(./img/icon_round_gr_tick.png) center center no-repeat;}
  
  /* IE11 */
 @media all and (-ms-high-contrast:none)
