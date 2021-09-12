@@ -172,5 +172,72 @@
 		"AWBPrefix": "157",
 		"AWBSuffix": "61239012",
 		"AWBDate": "15/01"
+	},
+	{
+		"IsFav": false,
+		"Origin": "FRA",
+		"Destination": "ICN",
+		"Bookings": [
+			{
+				"DepPort": "FRA",
+				"ArrPort": "ICN",
+				"DTTime": "10 Sep 2021, 20:30",
+				"ATTime": "12 Sep 2021, 07:40",
+				"Airline": "LH",
+				"FlightNum": "LH7623S",
+				"MDDate": "10 Sep 2021, 00:00",
+				"QDPieces": 2,
+				"QDWeight": "22.2kg",
+				"Status": ""
+			}
+		],
+		"Details": [
+			{
+				"row": 1,
+				"Highlight": "highlighted",
+				"StatusCode": "RCF",
+				"StatusText": "Freight accepted at airport",
+				"QDPieces": 2,
+				"QDWeight": "22.2kg",
+				"Port": "ICN",
+				"Airline": "LH",
+				"FlightNum": "LH8384",
+				"EventDate": "12 Sep 2021, 02:24",
+				"Remarks": ""
+			}
+		],
+		"Segments": [
+			{
+				"StatusText": "Freight accepted at airport",
+				"row": 1,
+				"Port": "ICN",
+				"FlightNum": "LH8384",
+				"EventDate": "12 Sep 2021, 02:24",
+				"QDPieces": 2,
+				"QDWeight": "22.2kg",
+				"StatusCode": "RCF",
+				"Milestone": 75,
+				"MilestoneStatus": "delivered",
+				"Remarks": ""
+			}
+		],
+		"TotalPcs": 2,
+		"TotalWeight": "22.2kg",
+		"CreateDT": {
+			"Seconds": 1631257737,
+			"Nanos": 0
+		},
+		"isFavourite": false,
+		"isError": false,
+		"ErrorCode": "",
+		"ErrorMessage": "",
+		"statusMapping": [],
+		"DetailsIoT": [],
+		"Devices": [],
+		"DeviceHistoryLogLocationMapping": [],
+		"CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
+		"AWBPrefix": "020",
+		"AWBSuffix": "89403090",
+		"AWBDate": "15/01"
 	}
 ]
