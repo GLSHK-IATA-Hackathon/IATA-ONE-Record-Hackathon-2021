@@ -69,48 +69,48 @@ function getLatestShipmentStatusDetails() {
 			|| objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'RCF'
 			|| objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'DLV'
 		) {
-		
-			if (AirportSummary[MdPort] === undefined) {
-				
-				AirportSummary[MdPort] = {
+			if(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventTypeIndicator == undefined && objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventTypeIndicator != "P"){
+				if (AirportSummary[MdPort] === undefined) {
 					
-					"FOH": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"RCS": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"MAN": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"DEP": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"ARR": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"RCF": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
-					"DLV": { TotalPieces: 0, TotalWeight: 0, Flights: [] }
+					AirportSummary[MdPort] = {
+						
+						"FOH": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"RCS": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"MAN": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"DEP": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"ARR": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"RCF": { TotalPieces: 0, TotalWeight: 0, Flights: [] },
+						"DLV": { TotalPieces: 0, TotalWeight: 0, Flights: [] }
+						
+					}
 					
 				}
 				
+				
+				AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
+				
+				AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
+				
+				Flight = {
+					row : i, 
+					FlightNumber : (
+										objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier != null 
+										? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier + ' ' 
+										+ (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate != null ? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate : '') //TODO202109 FormatAPIDate
+										: 
+										''
+									),
+					EventTime : (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'DEP' ? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].event.dateTime : objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate),
+					Airline : String(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier).substring(0,2),
+					Airport : MdPort,
+					Pieces : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value),
+					Weight : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
+				}
+				
+				AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].Flights.push(Flight)
+			
+				
 			}
-			
-			
-			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalPieces += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value)
-			
-			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].TotalWeight += parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
-			
-			Flight = {
-				row : i, 
-				FlightNumber : (
-									objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier != null 
-									? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier + ' ' 
-									+ (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate != null ? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate : '') //TODO202109 FormatAPIDate
-									: 
-									''
-								),
-				EventTime : (objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode == 'DEP' ? objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].event.dateTime : objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].arrivalDate),
-				Airline : String(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].transportSegment[0].transportIdentifier).substring(0,2),
-				Airport : MdPort,
-				Pieces : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].containedItem[0].quantity.value),
-				Weight : parseFloat(objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].grossWeight.value)
-			}
-			
-			AirportSummary[MdPort][objOneRecord.waybill.booking.shipmentDetails.containedPiece[i].event[0].eventCode].Flights.push(Flight)
-		
-			
-			
 		}
 		
 	}
@@ -137,7 +137,7 @@ function getLatestShipmentStatusDetails() {
 	//console.log('Total Pieces : ' + intTotalShipmentPieces)
 	
 	var Airports = Object.keys(AirportSummary)
-	
+	console.log("AirportSummary", AirportSummary);
 	Airports_loop:
 	for (var i = Airports.length - 1; i >= 0; i--) {
 		
@@ -185,7 +185,6 @@ function genLatestStatusList(objLatestStatusItems) {
 	
 	var strLatestStatus_Template = ''
 	var strLatest_Status_Content = ''
-	
 	strLatestStatus_Template = $("#latest_status_template").html();
 	
 	for (var key in objLatestStatusItems) {

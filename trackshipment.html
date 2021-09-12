@@ -1257,7 +1257,12 @@ $(function() {
                             var objDCSAJson;
                             $.ajax({
                                 method: "GET",
-                                url: "https://6b3855c8-0747-4e25-b07a-02aeb1f454c5.mock.pstmn.io/events?eventType=TRANSPORT&bookingReference=GLS987987987"
+                                //url: "https://6b3855c8-0747-4e25-b07a-02aeb1f454c5.mock.pstmn.io/events?eventType=TRANSPORT&bookingReference=GLS987987987"
+                                url: "https://uat-apigateway.ezbiz.com/dcsa_api/events?eventType=TRANSPORT&bookingReference=GLS987987987",
+                                headers:{
+                                    "apiKey":"gK1Xu36sHqTt5VvfxFLGJPyyBCrsaKvM",
+                                    "Access-Control-Allow-Origin": '*'
+                                }
                             })
                             .success(function(data){
                                 objDCSAJson = JSON.parse(data);
@@ -1904,7 +1909,7 @@ $(function() {
                     if (tntLine.Segments[0].FlightNum == "") {
                         flight_disabled = "disabled";
                     }
-
+                    console.log("MilestoneStatus", tntLine.Segments[0].MilestoneStatus);
                     if (tntLine.Segments.length > 0) {
                         var lineHtml = line_template
                             .replace("$IS_FAV$", tntLine.isFavourite ? "" : "btn_img_saved off")
