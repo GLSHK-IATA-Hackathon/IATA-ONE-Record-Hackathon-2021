@@ -5,7 +5,7 @@
 
 function configManager() {
     var version = Date.now().toString();
-	var configFilePath = '/web.config.js'
+	var configFilePath = './web.config.js'
 	
 	this.injectConfig = function () {
 		return new Promise(function (subResolve) {

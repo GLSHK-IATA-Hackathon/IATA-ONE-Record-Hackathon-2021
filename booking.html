@@ -576,8 +576,8 @@ i18next.use(window.i18nextXHRBackend).init({
 	fallbackLng: 'en-US',
 	lng: _currentCulture,
 	backend: {
-	  loadPath: '/locales/{{ns}}_{{lng}}.json',
-	  addPath: '/locales/add/{{ns}}_{{lng}}.json', // unused
+	  loadPath: './locales/{{ns}}_{{lng}}.json',
+	  addPath: './locales/add/{{ns}}_{{lng}}.json', // unused
 	  allowMultiLoading: false
     }
 }, function(err, t) {

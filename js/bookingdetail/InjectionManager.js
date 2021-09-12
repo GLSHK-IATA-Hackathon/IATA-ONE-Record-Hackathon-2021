@@ -6,10 +6,10 @@
 function injectionManager() {
     var version = '?_=20210715';
 
-    var defStylePath = '/DesktopModules/MVC/Booking/Style/';
-    var defScriptPath = '/js/bookingdetail/';
-    var defServicePath = '/js/bookingdetail/';
-	var defConfigPath = '/';
+    var defStylePath = './DesktopModules/MVC/Booking/Style/';
+    var defScriptPath = './js/bookingdetail/';
+    var defServicePath = './js/bookingdetail/';
+	var defConfigPath = './';
 	
 	this.injectConfig = function () {
 		var configFile = 'web.config.js'
