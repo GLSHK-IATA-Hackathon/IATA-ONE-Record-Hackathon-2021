@@ -1,0 +1,67 @@
+{
+    "IsFav": false,
+    "Origin": "BOM",
+    "Destination": "DOH",
+    "Bookings": [
+        {
+            "DepPort": "BOM",
+            "ArrPort": "DOH",
+            "DTTime": "08 Jan 2020, 00:00",
+            "ATTime": "09 Jan 2020, 00:00",
+            "Airline": "LH",
+            "FlightNum": "QR5601",
+            "MDDate": "08 Jan 2020, 00:00",
+            "QDPieces": 2200,
+            "QDWeight": "3303kg",
+            "Status": ""
+        }
+    ],
+    "Details": [
+        {
+            "row": 1,
+            "Highlight": "highlighted",
+            "StatusCode": "DEP",
+            "StatusText": "Departed",
+            "QDPieces": 2200,
+            "QDWeight": "3303kg",
+            "Port": "BOM",
+            "Airline": "QR",
+            "FlightNum": "QR5601",
+            "EventDate": "08 Jan 2020, 00:00",
+            "Remarks": ""
+        }
+    ],
+    "Segments": [
+        {
+            "StatusText": "Departed",
+            "row": 8,
+            "Port": "BOM",
+            "FlightNum": "QR5601",
+            "EventDate": "08 Jan 2020, 00:00",
+            "QDPieces": 2200,
+            "QDWeight": "3303kg",
+            "StatusCode": "DEP",
+            "Milestone": 75,
+            "MilestoneStatus": "Departed",
+            "Remarks": ""
+        }
+    ],
+    "TotalPcs": 2200,
+    "TotalWeight": "3303kg",
+    "CreateDT": {
+        "Seconds": 1578362460,
+        "Nanos": 0
+    },
+    "isFavourite": false,
+    "isError": false,
+    "ErrorCode": "",
+    "ErrorMessage": "",
+    "statusMapping": [],
+    "DetailsIoT": [],
+    "Devices": [],
+    "DeviceHistoryLogLocationMapping": [],
+    "CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
+    "AWBPrefix": "157",
+    "AWBSuffix": "61239012",
+    "AWBDate": "15/01"
+}

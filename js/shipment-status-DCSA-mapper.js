@@ -2,6 +2,8 @@ function DCSAmapper(intObj, quantityVal, grossWeightVal){
 	var containedPieces = []
 	
 	intObj.forEach((dcsaEvent, index) => {
+		objDCSAs.push(dcsaEvent);
+		
 		var containedPieceObj = {}
 		
 		var containedItem = []

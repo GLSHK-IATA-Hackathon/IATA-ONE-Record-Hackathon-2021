@@ -1,20 +1,20 @@
 [
 	{
 		"IsFav": false,
-		"Origin": "HKG",
-		"Destination": "NRT",
+		"Origin": "LAX",
+		"Destination": "HKG",
 		"Bookings": [
 			{
-				"DepPort": "HKG",
-				"ArrPort": "NRT",
-				"DTTime": "15 Jan 2021, 00:55",
-				"ATTime": "15 Jan 2021, 06:00",
+				"DepPort": "LAX",
+				"ArrPort": "HKG",
+				"DTTime": "26 May 2021, 00:00",
+				"ATTime": "27 May 2021, 18:48",
 				"Airline": "cx",
-				"FlightNum": "CX006",
-				"MDDate": "15 Jan 2021, 00:00",
-				"QDPieces": 1,
-				"QDWeight": "100kg",
-				"Status": "SPACE CONFIRM AGAINST ALLOTMENT"
+				"FlightNum": "CX097",
+				"MDDate": "26 May 2021, 00:00",
+				"QDPieces": 2,
+				"QDWeight": "791kg",
+				"Status": ""
 			}
 		],
 		"Details": [
@@ -23,32 +23,32 @@
 				"Highlight": "highlighted",
 				"StatusCode": "ARR",
 				"StatusText": "Arrived",
-				"QDPieces": 1,
-				"QDWeight": "100kg",
+				"QDPieces": 2,
+				"QDWeight": "791kg",
 				"Port": "NRT",
 				"Airline": "cx",
-				"FlightNum": "CX006",
-				"EventDate": "15 Jan, 06:00",
+				"FlightNum": "CX097",
+				"EventDate": "27 May 2021, 18:48",
 				"Remarks": ""
 			}
 		],
 		"Segments": [
 			{
 				"StatusText": "Arrived",
-				"row": 8,
-				"Port": "NRT",
-				"FlightNum": "CX006",
-				"EventDate": "15 Jan, 06:00",
-				"QDPieces": 1,
-				"QDWeight": "100kg",
+				"row": 1,
+				"Port": "HKG",
+				"FlightNum": "CX097",
+				"EventDate": "27 May 2021, 18:48",
+				"QDPieces": 2,
+				"QDWeight": "791kg",
 				"StatusCode": "ARR",
 				"Milestone": 75,
 				"MilestoneStatus": "arrived",
 				"Remarks": ""
 			}
 		],
-		"TotalPcs": 1,
-		"TotalWeight": "100kg",
+		"TotalPcs": 2,
+		"TotalWeight": "791kg",
 		"CreateDT": {
 			"Seconds": 1631367301,
 			"Nanos": 0
@@ -63,7 +63,7 @@
 		"DeviceHistoryLogLocationMapping": [],
 		"CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
 		"AWBPrefix": "160",
-		"AWBSuffix": "10035395",
+		"AWBSuffix": "77777770",
 		"AWBDate": "15/01"
 	},
     {
@@ -114,10 +114,10 @@
 				"Remarks": ""
 			}
 		],
-		"TotalPcs": 1,
-		"TotalWeight": "100kg",
+		"TotalPcs": 0,
+		"TotalWeight": "0kg",
 		"CreateDT": {
-			"Seconds": 1631367301,
+			"Seconds": 1631436000,
 			"Nanos": 0
 		},
 		"isFavourite": false,
@@ -131,6 +131,46 @@
 		"CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
 		"AWBPrefix": "020",
 		"AWBSuffix": "94616653",
+		"AWBDate": "15/01"
+	},
+    {
+		"IsFav": false,
+		"Origin": "BOM",
+		"Destination": "DOH",
+		"Bookings": [],
+		"Details": [
+			{
+				"row": 1,
+				"Highlight": "highlighted",
+				"StatusCode": "DEP",
+				"StatusText": "Departed",
+				"QDPieces": 2200,
+				"QDWeight": "3303kg",
+				"Port": "BOM",
+				"Airline": "QR",
+				"FlightNum": "QR5601",
+				"EventDate": "08 Jan 2020, 00:00",
+				"Remarks": ""
+			}
+		],
+		"Segments": [],
+		"TotalPcs": 2200,
+		"TotalWeight": "3303kg",
+		"CreateDT": {
+			"Seconds": 1578362460,
+			"Nanos": 0
+		},
+		"isFavourite": false,
+		"isError": false,
+		"ErrorCode": "",
+		"ErrorMessage": "No status yet",
+		"statusMapping": [],
+		"DetailsIoT": [],
+		"Devices": [],
+		"DeviceHistoryLogLocationMapping": [],
+		"CX_OSI_ERRCODE": "STATUS_RESPONSE_ERROR",
+		"AWBPrefix": "157",
+		"AWBSuffix": "61239012",
 		"AWBDate": "15/01"
 	}
 ]

@@ -332,12 +332,14 @@ function genShipmentHistoryList(objShipmentHistoryItems) {
 	var strShipment_History_Content = ''
 	
 	strShipment_History_Template = $("#shipment_history_template").html();
+	strGeofencing_Template = $("#geofencing_template").html();
 	
 	strShipment_History_Template = populateLocalizedStrings(strShipment_History_Template, strCurrentLanguage)
 	
 	var fn = ''
 	var lastFn = ''
 	
+	var DCSAseq = 0;
 	for (var key in objShipmentHistoryItems) {
 	
 		var MdPort = "HKG"
@@ -354,23 +356,44 @@ function genShipmentHistoryList(objShipmentHistoryItems) {
 			
 		}
 		
+		if (objShipmentHistoryItems[key].event[0].eventCode == 'ARRI' || objShipmentHistoryItems[key].event[0].eventCode == 'DEPA'){
+			DCSAseq = DCSAseq + 1;
+		}
+		
 		var Actual = 'Y'
 		if (objShipmentHistoryItems[key].event[0] !=null && objShipmentHistoryItems[key].event[0].eventTypeIndicator == 'P'){
 			Actual = 'N'
 		}
-
+		var displayGeofencing = false;
+		var temp_geofencing_template = strGeofencing_Template;
+		if(objShipmentHistoryItems[key].event[0].eventCode == "FOH" || objShipmentHistoryItems[key].event[0].eventCode == "RCS" || objShipmentHistoryItems[key].event[0].eventCode == "DEP"){
+			displayGeofencing = true;
+			temp_geofencing_template = temp_geofencing_template
+										.replace("{{Geofencing-ID}}","cwe8Ta")
+										.replace("{{Geofencing-Vendor}}","Unilode")
+										.replace("{{Geofencing-DeviceID}}","i07ODH")
+										.replace("{{Geofencing-DeviceAssetID}}","kdWeH8")
+										.replace("{{Geofencing-LogTimeStamp}}",((objShipmentHistoryItems[key].event[0].eventCode == 'DEP' && objShipmentHistoryItems[key].transportSegment[0].event.dateTime != null) || (objShipmentHistoryItems[key].event[0].eventCode != 'DEP' && objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null) ? (objShipmentHistoryItems[key].event[0].eventCode == 'DEP' ? objShipmentHistoryItems[key].transportSegment[0].event.dateTime: objShipmentHistoryItems[key].transportSegment[0].arrivalDate) : ''))
+										.replace("{{Geofencing-TimeOfReport}}",((objShipmentHistoryItems[key].event[0].eventCode == 'DEP' && objShipmentHistoryItems[key].transportSegment[0].event.dateTime != null) || (objShipmentHistoryItems[key].event[0].eventCode != 'DEP' && objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null) ? (objShipmentHistoryItems[key].event[0].eventCode == 'DEP' ? objShipmentHistoryItems[key].transportSegment[0].event.dateTime: objShipmentHistoryItems[key].transportSegment[0].arrivalDate) : ''))
+										.replace("{{Geofencing-AWBNo}}", objOneRecord.waybill.waybillPrefix + '-' + objOneRecord.waybill.waybillNumber)
+										.replace("{{Geofencing-Airport}}", MdPort)
+										.replace("{{Geofencing-MilestoneName}}","CRI")
+										.replace("{{Geofencing-LocationDescription}}","Cold Room")
+		}
 		strShipment_History_Content += strShipment_History_Template
 									   .replace("class=\"shipment-status_status\"", Actual == 'N' ? "class=\"shipment-status_status\" style=\"color:red;\"": "class=\"shipment-status_status\"")
 									   .replace("{{ShipmentHistory-StatusCode-Image}}", image_path + objShipmentHistoryItems[key].event[0].eventCode + '.png')
 									   .replace("{{ShipmentHistory-StatusCode)}}", getStatusDescByCode(objShipmentHistoryItems[key].event[0].eventCode))
-									   .replace("{{ShipmentHistory-MDPort1}}", MdPort)
-									   .replace("{{ShipmentHistory-EventTime}}", ((objShipmentHistoryItems[key].event[0].eventCode == 'DEP' && objShipmentHistoryItems[key].transportSegment[0].event.dateTime != null) || (objShipmentHistoryItems[key].event[0].eventCode != 'DEP' && objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null) ? (objShipmentHistoryItems[key].event[0].eventCode == 'DEP' ? objShipmentHistoryItems[key].transportSegment[0].event.dateTime: objShipmentHistoryItems[key].transportSegment[0].arrivalDate) : ''))  //TODO202109 FORMAT date
-									   .replace("{{ShipmentHistory-FlightInfo}}", ((objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != null && objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != '') ? LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + objShipmentHistoryItems[key].transportSegment[0].transportIdentifier + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '') : LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + lastFn + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '')))
+									   .replace("{{ShipmentHistory-MDPort1}}", (objShipmentHistoryItems[key].event[0].eventCode != 'ARRI' && objShipmentHistoryItems[key].event[0].eventCode != 'DEPA') ? LocalizedStrings['Port'][strCurrentLanguage] + ': ' +  MdPort : 'Location: ' + (MdPort == 'DEPO'?'Depot':'Ramp'))
+									   .replace("{{ShipmentHistory-EventTime}}", ((objShipmentHistoryItems[key].event[0].eventCode == 'DEP' && objShipmentHistoryItems[key].transportSegment[0].event[0].dateTime != null) || (objShipmentHistoryItems[key].event[0].eventCode != 'DEP' && objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null) ? (objShipmentHistoryItems[key].event[0].eventCode == 'DEP' ? objShipmentHistoryItems[key].transportSegment[0].event[0].dateTime: objShipmentHistoryItems[key].transportSegment[0].arrivalDate) : ''))  //TODO202109 FORMAT date
+									   .replace("{{ShipmentHistory-FlightInfo}}", (objShipmentHistoryItems[key].event[0].eventCode != 'ARRI' && objShipmentHistoryItems[key].event[0].eventCode != 'DEPA') ? ((objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != null && objShipmentHistoryItems[key].transportSegment[0].transportIdentifier != '') ? LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + objShipmentHistoryItems[key].transportSegment[0].transportIdentifier + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '') : LocalizedStrings['Flight'][strCurrentLanguage] + ': ' + lastFn + ' ' + (objShipmentHistoryItems[key].transportSegment[0].arrivalDate != null ? objShipmentHistoryItems[key].transportSegment[0].arrivalDate : '')) : 'Mode: ' + objShipmentHistoryItems[key].transportSegment[0].transportIdentifier)
 									   .replace("{{ShipmentHistory-QDPieces}}", parseFloat(objShipmentHistoryItems[key].containedItem[0].quantity.value))
 									   .replace("{{ShipmentHistory-QDWeight}}", parseFloat(objShipmentHistoryItems[key].grossWeight.value))
 									   .replace("{{ShipmentHistory-Remarks}}", (getULDInfo2(objShipmentHistoryItems[key].DetailSeq - 1) != '' ? LocalizedStrings['Remarks'][strCurrentLanguage] + ': ' + getULDInfo2(objShipmentHistoryItems[key].DetailSeq - 1) : '')) //TODO202109
-			
-		
+									   .replace("{{Display-Geofencing}}", displayGeofencing ? "block":"none")
+									   .replace("{{Geofencing-Details}}", displayGeofencing ? temp_geofencing_template:"")
+									   .replace("{{Display-DCSA}}", (objShipmentHistoryItems[key].event[0].eventCode != 'ARRI' && objShipmentHistoryItems[key].event[0].eventCode != 'DEPA') ? "none":"block")
+									   .replace("{{DCSA-Details}}", (objShipmentHistoryItems[key].event[0].eventCode != 'ARRI' && objShipmentHistoryItems[key].event[0].eventCode != 'DEPA') ? "":DCSAseq)
 	}
 	
 	$("#ShipmentHistory-Content").html(strShipment_History_Content)
@@ -434,14 +457,14 @@ function toggleSortShipmentHistory() {
 	if (strCurrentShipmentHistorySortDirection == 'asc') {
 			objShipmentHistoryItems.sort(function (a, b) {
 						//return a.DetailSeq - b.DetailSeq
-						return (a.transportSegment[0].arrivalDate > b.transportSegment[0].arrivalDate ? 1 : -1)
+						return (a.transportSegment[0].arrivalDate >= b.transportSegment[0].arrivalDate ? 1 : -1)
 					});		
 	}
 	else {
 		
 		objShipmentHistoryItems.sort(function (a, b) {
 						//return b.DetailSeq - a.DetailSeq
-						return (a.transportSegment[0].arrivalDate > b.transportSegment[0].arrivalDate ? -1 : 1)
+						return (a.transportSegment[0].arrivalDate >= b.transportSegment[0].arrivalDate ? -1 : 1)
 					});			
 		
 	}

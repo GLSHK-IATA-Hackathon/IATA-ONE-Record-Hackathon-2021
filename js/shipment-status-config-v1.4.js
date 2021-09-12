@@ -394,6 +394,8 @@ var vue_ShipmentStatus
 
 var strJSON_FreightStatus
 var objOneRecord
+var objDCSAs =[]
+var objRawData
 var objNotification
 var objBookingItems
 var objLatestStatusItems
@@ -415,7 +417,7 @@ var intTimeDiffThresholdinMinutes4SameAirport = 30 //Added at 20210409
 var intNoOfLabelsinCategoryAxis = 20
 
 
-var strCurrentShipmentHistorySortDirection = 'asc'
+var strCurrentShipmentHistorySortDirection = 'desc'
 var strCurrentNotificationSortDirection = 'asc'
 
 var intLatestStatus_TotalPieces = 0

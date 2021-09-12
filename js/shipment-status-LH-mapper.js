@@ -104,7 +104,7 @@ function LHmapper(LHTrackingShipment){
 		transportSegment[0]['transportIdentifier'] = mileston.flight.flightCarrierCode + mileston.flight.flightNumber
 		
 		var eventObjArr = []
-		if(mileston.events.event != null){
+		if(mileston.events.event != null && 1<0){ //skip this part
 			mileston.events.event.forEach((eventItem, index) => {
 				var eventObj = {}
 				if (eventItem.type != 'ARR'){
@@ -118,13 +118,18 @@ function LHmapper(LHTrackingShipment){
 			})
 			transportSegment[0]['event'] = eventObjArr
 		}else{
-			var eventObj = {}
-			if (isComplete != 0){
-				eventObj['dateTime'] = mileston.actualTime
-			}else{
-				eventObj['dateTime'] = mileston.plannedTime
+			
+			if (mileston.type == 'DEP'){
+				var eventObj = {}
+				if (isComplete != 0){
+					eventObj['dateTime'] = mileston.actualTime
+				}else{
+					eventObj['dateTime'] = mileston.plannedTime
+				}
+				
+				eventObjArr.push(eventObj)
+				transportSegment[0]['event'] = eventObjArr
 			}
-			transportSegment[0]['event'] = eventObjArr
 		}
 		
 		containedPieceObj['containedItem'] = containedItem
@@ -201,13 +206,18 @@ function getBKD(LHTrackingShipment){
 	var eventObj = []
 	var eventObjDEP = {}
 	eventObjDEP['eventName'] = 'DEP'
-	eventObjDEP['dateTime'] = LHTrackingShipment.shipmentTrackingStatus.booking.bookingTime
+	
+	var depObj = []
+	depObj = getDEP(LHTrackingShipment)
+	eventObjDEP['dateTime'] = getSTD(depObj)
 	eventObjDEP['eventTypeIndicator'] = 'S'
 	eventObj.push(eventObjDEP)
 	
 	var eventObjARR = {}
 	eventObjARR['eventName'] = 'ARR'
-	eventObjARR['dateTime'] = LHTrackingShipment.shipmentTrackingStatus.booking.originalTimeFrame.tOA
+	var arrObj = []
+	arrObj = getARR(LHTrackingShipment)
+	eventObjARR['dateTime'] = getSTA(arrObj)
 	eventObjARR['eventTypeIndicator'] = 'S'
 	eventObj.push(eventObjARR)
 	
@@ -215,4 +225,27 @@ function getBKD(LHTrackingShipment){
 				
 	containedPieceObj['transportSegment'] = transportSegment
 	return containedPieceObj;
+}
+
+
+function getDEP(LHTrackingShipment){
+	return LHTrackingShipment.shipmentTrackingStatus.milestonePlan.milestones.milestone.filter(function (objMilestone) {
+		return objMilestone.type == 'DEP' && objMilestone.station == LHTrackingShipment.shipmentTrackingStatus.booking.origin
+	});
+}
+
+function getSTD(objDEP){
+	return objDEP[0].plannedTime
+}
+
+
+
+function getARR(LHTrackingShipment){
+	return LHTrackingShipment.shipmentTrackingStatus.milestonePlan.milestones.milestone.filter(function (objMilestone) {
+		return objMilestone.type == 'ARR' && objMilestone.station == LHTrackingShipment.shipmentTrackingStatus.booking.destination
+	});
+}
+
+function getSTA(objARR){
+	return objARR[0].plannedTime
 }

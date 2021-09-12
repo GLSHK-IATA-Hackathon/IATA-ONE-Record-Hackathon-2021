@@ -1859,7 +1859,9 @@ $(function() {
                     <span id="bd_pcs">50</span>
                     <span id="cargoInfo_disp_pcs_unit" data-i18n="cargoInfo.pcs">pcs</span>
                 </div><div class="b_flight_weight"><span id="bd_weight">10.3</span><span id="bd_weight_code">KG</span></div>
-            </div>
+				<div class="blkr">
+                    <img class="get_awb_1r" src="./img/icon_oneRecord.jpg" style="cursor : pointer;width: 32px; height: 32px; margin-left: 10px;" onclick="showOneRecordJson('awb_1r');">
+                </div>
             <div class="blkc"></div>
 
             <div class="blk_tb">
@@ -4727,6 +4729,25 @@ $(function() {
 		
 	});	
 		
+	function showOneRecordJson(type){
+            let params = "scrollbars=yes,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=500";
+            if(type == "awb_1r"){
+			    var objOneRecord = {}
+				$.getJSON("json/OneRecord_160-10039654.json", function(json) {
+					objOneRecord = json;
+				});
+                var oneRecord_window = window.open("/1R_Display.html", "One Record", params);
+                oneRecord_window.document.write("<head><title>One Record</title></head>");
+                oneRecord_window.document.write("<pre>" + JSON.stringify(objOneRecord, null, 2) + "</pre>");
+            }
+            else if(type == "raw"){
+                var rawData_window = window.open("/1R_Display.html", "One Record", params);
+                rawData_window.document.write("<head><title>Raw Data</title></head>");
+                rawData_window.document.write("<pre>" + JSON.stringify(objRawData, null, 2) + "</pre>");
+            }
+            
+        }
+
 	function fltRefreshDisplay() {
 		
 		$("#fld_flight_table").empty();
@@ -5399,11 +5420,11 @@ $(function() {
 		        </div>
 	            <div class="blk_typea">
 	                <label data-i18n="specialCargo.ProductTempRange">Product Temperature Range</label>
-	                <div><span id="bu_ptr_s">10.0</span> - <span id="bu_ptr_e">20.0</span> <span id="bu_ptr_u">°C</span></div>
+	                <div><span id="bu_ptr_s">-2.0</span> - <span id="bu_ptr_e">10.0</span> <span id="bu_ptr_u">°C</span></div>
 	            </div>
 	            <div class="blk_typea">
 	                <label data-i18n="specialCargo.StorageTempRange">Storage Temperature Range</label>
-	                <div><span id="bu_str_s">0.0</span> - <span id="bu_str_e">0.0</span> <span id="bu_str_u">°C</span></div>
+	                <div><span id="bu_str_s">10.0</span> - <span id="bu_str_e">20.0</span> <span id="bu_str_u">°C</span></div>
 	            </div>
 	            <div class="blk_typea">
 	                <label data-i18n="specialCargo.EmergencyTel">Emergency Tel</label>
