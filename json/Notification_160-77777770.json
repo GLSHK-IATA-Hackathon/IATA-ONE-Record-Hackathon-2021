@@ -1,0 +1,14 @@
+{
+    "notification":[
+        {
+            "notificationCode":"WARN",
+            "notificationDesc":"Temperature exceed upper limited detect 01:48 26-05-2021",
+            "notificationTime":"2021-05-26T01:48:00Z"
+        },
+        {
+            "notificationCode":"INFO",
+            "notificationDesc":"Delivered on 2021-05-27 20:56",
+            "notificationTime":"2021-05-27T20:56:00Z"
+        }
+    ]
+}

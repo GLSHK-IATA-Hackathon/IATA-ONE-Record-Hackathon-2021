@@ -90,8 +90,8 @@
 				"Highlight": "highlighted",
 				"StatusCode": "RCF",
 				"StatusText": "Freight accepted at airport",
-				"QDPieces": 0,
-				"QDWeight": "0kg",
+				"QDPieces": 1,
+				"QDWeight": "5kg",
 				"Port": "FRA",
 				"Airline": "LH",
 				"FlightNum": "LH7623S",
@@ -106,16 +106,16 @@
 				"Port": "FRA",
 				"FlightNum": "LH7623S",
 				"EventDate": "12 Sep 2021, 07:15",
-				"QDPieces": 0,
-				"QDWeight": "0kg",
+				"QDPieces": 1,
+				"QDWeight": "5kg",
 				"StatusCode": "RCF",
 				"Milestone": 75,
 				"MilestoneStatus": "delivered",
 				"Remarks": ""
 			}
 		],
-		"TotalPcs": 0,
-		"TotalWeight": "0kg",
+		"TotalPcs": 1,
+		"TotalWeight": "5kg",
 		"CreateDT": {
 			"Seconds": 1631436000,
 			"Nanos": 0

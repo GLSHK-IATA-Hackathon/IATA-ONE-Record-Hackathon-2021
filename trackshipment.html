@@ -1170,12 +1170,12 @@ $(function() {
         }
 
         function tntPerformSearch(multi, forceUpdate) {
-            ToggleLoading(true);
+            strCurrentShipmentHistorySortDirection = 'desc';
             receivedContent = [];
             receivedContent_res = [];    //Added at 20201208 for tntDisplaySingleV2 function
             var timeoutValue;
             recheckMode = false;
-
+            
             if (!multi) {
                 searchSingle = true;
                 var awbPrefix = $("#tnt_awbPrefix").val();
@@ -1194,10 +1194,21 @@ $(function() {
                         break;
                 }
 
-                $.getJSON("json/Notification.json", function(json) {
-                    objNotification = json;
+                var notificationFileName;
+                $.ajax({
+                    url:"json/Notification_" + awbPrefix + "-" + awbSuffix + ".json"
+                })
+                .success(function(){
+                    notificationFileName = "Notification_" + awbPrefix + "-" + awbSuffix + ".json";
+                })
+                .error(function(){
+                    notificationFileName = "Notification.json";
                 });
 
+                $.getJSON("json/" + notificationFileName, function(json) {
+                    objNotification = json;
+                });
+                
                 if(company == "CX"){
                     $.ajax({
                         method: "GET",
@@ -1276,8 +1287,8 @@ $(function() {
 							.complete(function(data){
                                 var objDCSA = []
                                 objDCSA = DCSAmapper(objDCSAJson, objOneRecord.waybill.booking.shipmentDetails.totalPieceCount,objOneRecord.waybill.booking.shipmentDetails.totalGrossWeight.value);
-                                console.log(objDCSA);
-                                objDCSA
+                                //console.log(objDCSA);
+                                //objDCSA
                                 objDCSA.forEach((dcsaEvent, index) => {
                                     var thepatch = [
                                     { "op": "add", "path": "/waybill/booking/shipmentDetails/containedPiece/0", "value": dcsaEvent }
@@ -1285,7 +1296,7 @@ $(function() {
                                     objOneRecord = jsonpatch.apply_patch(objOneRecord, thepatch)
                                 })
                                 
-                                console.log(objOneRecord);
+                                //console.log(objOneRecord);
                                 tntToggleDisplay(displayStatus.single);
                                 tntDisplaySingleV2("");
                             });
@@ -1807,7 +1818,7 @@ $(function() {
             objNGTTDeviceSensorReading.awbNum = objOneRecord.waybill.waybillPrefix + '-' + objOneRecord.waybill.waybillNumber;
             objNGTTDeviceSensorReading.flight = flights;
             objNGTTDeviceSensorReading.devices = devices;
-            console.log("objNGTTDeviceSensorReading: ", objNGTTDeviceSensorReading);
+            //console.log("objNGTTDeviceSensorReading: ", objNGTTDeviceSensorReading);
 
 			if(true){
                 // objNGTTDeviceSensorReading = JSON.parse(strJSON_NGTTDeviceSensorReading);
@@ -1909,7 +1920,7 @@ $(function() {
                     if (tntLine.Segments[0].FlightNum == "") {
                         flight_disabled = "disabled";
                     }
-                    console.log("MilestoneStatus", tntLine.Segments[0].MilestoneStatus);
+                    
                     if (tntLine.Segments.length > 0) {
                         var lineHtml = line_template
                             .replace("$IS_FAV$", tntLine.isFavourite ? "" : "btn_img_saved off")
